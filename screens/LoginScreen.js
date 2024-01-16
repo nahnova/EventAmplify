@@ -49,8 +49,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontFamily: "Helvetica Neue",
     fontSize: 16,
-    fontWeight: "bold",
-    color: "#0000",
+    fontWeight: "bold",    
     marginHorizontal: 48,
   },
 });

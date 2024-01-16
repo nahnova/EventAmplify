@@ -58,19 +58,22 @@ const HomeScreen = () => {
             signOut();
           }}
         >
-          <Image
+          {/* TODO: add EventAmplify Logo */}
+          {/* <Image
             source={{
-              uri: "https://mirri.link/cKC3KEw",
+              uri: "",
             }}
             style={styles.logo}
             resizeMode="contain"
-          />
+          /> */}
         </TouchableOpacity>
-        <TouchableOpacity
+
+        {/* TODO: add misc button */}
+        {/* <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Chat");
+            navigation.navigate("");
           }}
-          style={styles.chatButton}
+          style={styles.rightButton}
         >
           <MessageCircle
             stroke="#000"
@@ -78,7 +81,7 @@ const HomeScreen = () => {
             height={32}
             fill="#000"
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       {/* End Header */}
     </SafeAreaView>
@@ -108,5 +111,10 @@ const styles = StyleSheet.create({
   logo: {
     width: 64,
     height: 48,
+  },
+  chatButton: {
+    position: "absolute",
+    right: 8,
+    top: 3,
   },
 });

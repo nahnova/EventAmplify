@@ -32,13 +32,13 @@ export const AuthProvider = ({ children }) => {
 
   const config = {
     androidClientId:
-      "",
+      "1094590548812-71iqdl1cnndl8r5re9ug98ijfhk281om.apps.googleusercontent.com",
     iosClientId:
-      "",
+      "1094590548812-akttfprlalvea6el15v9hgv6psrho0o7.apps.googleusercontent.com",
     expoClientId:
-      "",
+      "1094590548812-mvsut460hl5bdu68m2k4i83kgbe262b9.apps.googleusercontent.com",
     useProxy: true,
-    projectNameForProxy: "@noaheutz/EventAmplify"
+    projectNameForProxy: "@noaheutz/EventAmplify",
   };
 
   const [request, response, promptAsync] = Google.useAuthRequest(config);
@@ -81,9 +81,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     signInWithGoogle();
   }, [response]);
-
-  //log the userInfo to see user details
-  console.log(JSON.stringify(userInfo));
+  
   return (
     <AuthContext.Provider
       value={{
