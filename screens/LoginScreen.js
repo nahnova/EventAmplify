@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica Neue",
     fontSize: 16,
     fontWeight: "bold",
-    color: "#000",
+    color: "#0000",
     marginHorizontal: 48,
   },
 });
