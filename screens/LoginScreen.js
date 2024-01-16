@@ -10,16 +10,16 @@ const LoginScreen = () => {
 
   return (
     <LinearGradient
-      colors={["#ffffff", "#e3e3e3", "#000000"]}
+      colors={["#000", "#333334", "#fff"]}
       style={styles.container}
     >
-      {/* <Image
+      <Image
         source={{
-          uri: "https://mirri.link/lVTukH7",
+          uri: "https://mirri.link/Vn1yD4P",
         }}
         style={styles.logo}
         resizeMode="contain"
-      /> */}
+      />
       <TouchableOpacity
         onPress={() => {
           promptAsync();
