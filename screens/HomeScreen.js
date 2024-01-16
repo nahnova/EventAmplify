@@ -58,14 +58,13 @@ const HomeScreen = () => {
             signOut();
           }}
         >
-          {/* TODO: add EventAmplify Logo */}
-          {/* <Image
+          <Image
             source={{
-              uri: "",
+              uri: "https://mirri.link/HisRdM1",
             }}
             style={styles.logo}
             resizeMode="contain"
-          /> */}
+          />
         </TouchableOpacity>
 
         {/* TODO: add misc button */}

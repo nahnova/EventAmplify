@@ -1,6 +1,6 @@
 # EventAmplify
 📱 EventAmplify: Event Experience and Management Solutions 
-![LOGOv2]()
+![LOGOv2](https://mirri.link/-yhLStB)
 
 ## Introduction
 
