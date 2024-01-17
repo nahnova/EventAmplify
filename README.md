@@ -157,7 +157,6 @@ TODO: Add Activity Diagram @xavier
 ## Data Model
 
 #### users
-
 - **id**: Unique identifier for each user.
 - **displayName**: User's name.
 - **bio**: User's biography.
@@ -166,8 +165,12 @@ TODO: Add Activity Diagram @xavier
 - **role**: User's role which could be organizer or attendee.
 - **timestamp**: Server timestamp of the user.
 
-#### locations
+#### attendingEvents of users 
+- **id**: Unique identifier for each event.
+- **locationId**: Location's id.
+- **timestamp**: Server timestamp of the event.
 
+#### locations
 - **id**: Unique identifier for each location.
 - **name**: Location's name.
 - **description**: Location's description.
@@ -177,7 +180,6 @@ TODO: Add Activity Diagram @xavier
 - **events**: List of events in the location.
 
 ##### events of locations
-
 - **id**: Unique identifier for each event.
 - **title**: Event's title.
 - **description**: Event's description.
@@ -195,7 +197,6 @@ TODO: Add Activity Diagram @xavier
 - **attendees**: List of attendees' ids.
 
 ##### organizers of events
-
 - **id**: Unique identifier for each organizer.
 - **displayName**: Organizer's name.
 - **bio**: Organizer's biography.
@@ -205,7 +206,6 @@ TODO: Add Activity Diagram @xavier
 - **timestamp**: Server timestamp of the organizer.
 
 ##### attendees of events
-
 - **id**: Unique identifier for each attendee.
 - **displayName**: Attendee's name.
 - **bio**: Attendee's biography.
@@ -215,7 +215,6 @@ TODO: Add Activity Diagram @xavier
 - **timestamp**: Server timestamp of the attendee.
 
 ##### activities of events
-
 - **id**: Unique identifier for each activity.
 - **title**: Activity's title.
 - **description**: Activity's description.
