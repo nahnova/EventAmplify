@@ -16,9 +16,12 @@ const AuthContext = createContext({});
 WebBrowser.maybeCompleteAuthSession();
 
 export const AuthProvider = ({ children }) => {
+  // the google user object is stored in the state
   const [userInfo, setUserInfo] = useState(null);
-  const [user , setUser] = useState(null);
+  // the firestore user object is stored in the state
+  const [user, setUser] = useState(null);
 
+  // Listen for authentication state to change.
   useEffect(() => {
     const subscriber = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -32,6 +35,7 @@ export const AuthProvider = ({ children }) => {
     return subscriber; // unsubscribe on unmount
   }, []);
 
+  // Request scopes from Google
   const config = {
     androidClientId:
       "1094590548812-71iqdl1cnndl8r5re9ug98ijfhk281om.apps.googleusercontent.com",
@@ -43,10 +47,11 @@ export const AuthProvider = ({ children }) => {
     projectNameForProxy: "@noaheutz/EventAmplify",
   };
 
+  // Prompt the user to sign in using their Google account
   const [request, response, promptAsync] = Google.useAuthRequest(config);
 
-  // get user profile
-  const getUserProfileFirestore= async () => {
+  // get user profile from firestore
+  const getUserProfileFirestore = async () => {
     const docRef = doc(db, "users", userInfo.uid);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
@@ -56,6 +61,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Sign in the user with their Google Account
   const signInWithGoogle = async () => {
     try {
       // Attempt to retrieve user information from AsyncStorage
@@ -79,9 +85,11 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Sign out the user
   const signOut = async () => {
     // Remove the user from the state
     setUserInfo(null);
+    setUser(null);
     // Sign-out the user from Firebase
     await signOutFirebase().catch((error) => {
       console.error("Error signing out:", error);
@@ -93,14 +101,20 @@ export const AuthProvider = ({ children }) => {
   //add it to a useEffect with response as a dependency
   useEffect(() => {
     signInWithGoogle();
-    { userInfo && getUserProfileFirestore() }
   }, [response]);
-  
+
+  //add it to a useEffect with userInfo as a dependency
+  useEffect(() => {
+    if (userInfo) {
+      getUserProfileFirestore();
+    }
+  }, [userInfo]);
+
   return (
     <AuthContext.Provider
       value={{
-        userInfo,
-        user,
+        userInfo, // google user
+        user, // firestore user
         promptAsync, // Make sure promptAsync is included in the context value
         signOut, // Make sure signOut is included in the context value
       }}
