@@ -35,7 +35,7 @@
 
 
 ## Design
-[High Fidelity Design]()
+[High Fidelity Design](https://www.figma.com/file/gxSWRTmZfQqxtPYEfD79lz/EventAmplify---V1?type=design&node-id=1%3A2&mode=design&t=ouFTBBN0VObApzbp-1)
 
 ## Technical Stack
 
