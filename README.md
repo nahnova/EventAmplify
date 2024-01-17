@@ -168,6 +168,7 @@ TODO: Add Activity Diagram @xavier
 - **id**: Unique identifier for each location.
 - **name**: Location's name.
 - **description**: Location's description.
+- **location**: Latitude and longitude of the location. street, city, country.
 - **photoUrl**: Location's photo.
 - **timestamp**: Server timestamp of the location.
 - **events**: List of events in the location.

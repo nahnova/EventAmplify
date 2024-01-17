@@ -83,6 +83,7 @@ const HomeScreen = () => {
         </TouchableOpacity> */}
       </View>
       {/* End Header */}
+      {/* TODO: Add: events where user is part of attendees and welcome message etc */}
     </SafeAreaView>
   );
 };

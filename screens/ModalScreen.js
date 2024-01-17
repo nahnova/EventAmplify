@@ -114,7 +114,7 @@ const ModalScreen = () => {
           value={bio}
           onChangeText={setBio}
         />
-        <Text style={styles.modalTitle}>3. Role</Text>
+        <Text style={styles.modalTitle}>3. Role </Text>
         <View style={{ flexDirection: "row" }}>
           <TouchableOpacity
             style={{

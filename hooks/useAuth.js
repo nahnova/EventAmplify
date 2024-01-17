@@ -8,7 +8,8 @@ import {
   signInWithCredential,
   signOut as signOutFirebase,
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 const AuthContext = createContext({});
 
@@ -16,6 +17,7 @@ WebBrowser.maybeCompleteAuthSession();
 
 export const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState(null);
+  const [user , setUser] = useState(null);
 
   useEffect(() => {
     const subscriber = onAuthStateChanged(auth, (user) => {
@@ -42,6 +44,17 @@ export const AuthProvider = ({ children }) => {
   };
 
   const [request, response, promptAsync] = Google.useAuthRequest(config);
+
+  // get user profile
+  const getUserProfileFirestore= async () => {
+    const docRef = doc(db, "users", userInfo.uid);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      setUser(docSnap.data());
+    } else {
+      console.log("No such document!");
+    }
+  };
 
   const signInWithGoogle = async () => {
     try {
@@ -80,12 +93,14 @@ export const AuthProvider = ({ children }) => {
   //add it to a useEffect with response as a dependency
   useEffect(() => {
     signInWithGoogle();
+    { userInfo && getUserProfileFirestore() }
   }, [response]);
   
   return (
     <AuthContext.Provider
       value={{
         userInfo,
+        user,
         promptAsync, // Make sure promptAsync is included in the context value
         signOut, // Make sure signOut is included in the context value
       }}
