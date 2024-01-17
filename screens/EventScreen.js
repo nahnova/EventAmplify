@@ -57,7 +57,7 @@ const EventScreen = () => {
   const navigation = useNavigation();
   return (
     <>
-      {user.role === "organizer" ? (
+      {user?.role === "organizer" ? (
         <SafeAreaView>
           <Text>organizer event screen</Text>
           <FlatList

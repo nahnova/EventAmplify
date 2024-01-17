@@ -95,7 +95,7 @@ const StackNavigator = () => {
                   {() => (
                     <Stack.Navigator>
                       {/* Flow should be --> Events List ---> Event Pre Details --> Scan Event QR ---> See Entire Event(Map, Activities, etc) */}
-                      <Stack.Group screenOptions={{ headerShown: false }}>
+                      <Stack.Group>
                         <Stack.Screen
                           name="Location"
                           component={LocationScreen}
