@@ -22,8 +22,10 @@ const ModalScreen = () => {
   const [picture, setPicture] = useState(null);
   const [bio, setBio] = useState(null);
   const [location, setLocation] = useState(null);
+  const [role, setRole] = useState(null);
 
-  const incompleteProfile = !picture || !bio || !displayName;
+  const incompleteProfile =
+    !picture || !bio || !displayName || !location || !role;
 
   const updateUserProfile = () => {
     setDoc(doc(db, "users", userInfo.uid), {
@@ -35,6 +37,7 @@ const ModalScreen = () => {
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,
       },
+      role: role,
       timestamp: serverTimestamp(),
     })
       .then(() => {
@@ -55,6 +58,7 @@ const ModalScreen = () => {
       setDisplayName(displayName);
       setPicture(photoURL);
       setBio(bio);
+      setRole(role);
     } else {
       console.log("No such document!");
     }
@@ -110,7 +114,53 @@ const ModalScreen = () => {
           value={bio}
           onChangeText={setBio}
         />
-        <Text style={styles.modalTitle}>3. Location</Text>
+        <Text style={styles.modalTitle}>3. Role</Text>
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              marginRight: 8,
+              padding: 16,
+              borderRadius: 16,
+              backgroundColor: role === "admin" ? "#555" : "#000",
+            }}
+            onPress={() => setRole("admin")}
+          >
+            <Text
+              style={{
+                textAlign: "center",
+                fontSize: 16,
+                fontWeight: "bold",
+                color: "#ffffff",
+              }}
+            >
+              Admin
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              marginLeft: 8,
+              padding: 16,
+              borderRadius: 16,
+              backgroundColor: role === "user" ? "#555" : "#000",
+            }}
+            onPress={() => setRole("user")}
+          >
+            <Text
+              style={{
+                textAlign: "center",
+                fontSize: 16,
+                fontWeight: "bold",
+                color: "#ffffff",
+              }}
+            >
+              User
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.modalTitle}>4. Location</Text>
         {location && (
           <MapView
             style={{ width: "100%", height: 200, borderRadius: 16 }}
