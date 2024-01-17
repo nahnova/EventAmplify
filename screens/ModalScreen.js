@@ -25,7 +25,7 @@ const ModalScreen = () => {
   const [role, setRole] = useState(null);
 
   const incompleteProfile =
-    !picture || !bio || !displayName || !location || !role;
+    !picture || !bio || !displayName || !role;
 
   const updateUserProfile = () => {
     setDoc(doc(db, "users", userInfo.uid), {

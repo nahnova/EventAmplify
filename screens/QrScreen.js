@@ -5,8 +5,7 @@ import { useRoute } from "@react-navigation/native";
 
 const QrScreen = () => {
   const { params } = useRoute();
-
-  const { event } = params;
+  const { event, locationId } = params;
   return (
     <>
       {event && (
@@ -23,7 +22,13 @@ const QrScreen = () => {
           >
             Qr for {event.title}
           </Text>
-          <QRCode size={300} value={event.id} />
+          <QRCode
+            size={300}
+            value={JSON.stringify({
+              locationId: locationId,
+              eventId: event.id,
+            })}
+          />
         </View>
       )}
     </>

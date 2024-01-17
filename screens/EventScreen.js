@@ -71,6 +71,7 @@ const EventScreen = () => {
                     onPress={() =>
                       navigation.navigate("Qr", {
                         event: item,
+                        locationId,
                       })
                     }
                   >
@@ -80,8 +81,8 @@ const EventScreen = () => {
                     style={styles.eventButton}
                     onPress={() =>
                       navigation.navigate("EventDetail", {
-                        locationId,
                         eventId: item.id,
+                        locationId,
                       })
                     }
                   >
