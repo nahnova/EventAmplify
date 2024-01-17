@@ -17,8 +17,8 @@ const StackNavigator = () => {
     <>
       {userInfo ? (
         <>
-          {userInfo.role === "admin" ? (
-            // TAB NAVIGATOR FOR ADMIN
+          {userInfo.role === "organizer" ? (
+            // TAB NAVIGATOR FOR organizer
             <Tab.Navigator>
               <Tab.Group screenOptions={{ headerShown: false }}>
                 <Tab.Screen name="Home">
@@ -41,7 +41,7 @@ const StackNavigator = () => {
               </Tab.Group>
             </Tab.Navigator>
           ) : (
-            // TAB NAVIGATOR FOR USER
+            // TAB NAVIGATOR FOR attendee
             <Tab.Navigator>
               <Tab.Group screenOptions={{ headerShown: false }}>
                 <Tab.Screen name="Home">
@@ -61,9 +61,13 @@ const StackNavigator = () => {
                     </Stack.Navigator>
                   )}
                 </Tab.Screen>
-                <Tab.Screen name="Scan">
+                <Tab.Screen name="Events">
                   {() => (
                     <Stack.Navigator>
+                      {/* Flow should be --> Events List ---> Event Pre Details --> Scan Event QR ---> See Entire Event */}
+                      <Stack.Group screenOptions={{ headerShown: false }}>
+                        <Stack.Screen name="Events" component={HomeScreen} />
+                      </Stack.Group>
                       <Stack.Group screenOptions={{ headerShown: false }}>
                         <Stack.Screen name="Scan" component={ScanScreen} />
                       </Stack.Group>

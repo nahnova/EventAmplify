@@ -119,8 +119,8 @@ Here are all the diagrams with added value for EventAmplify, all following UML s
 ### Use Case Diagram:
 
 
-### Class Diagram:
-
+### Class Diagram (CONCEPTUAL):
+![Class Diagram](https://mirri.link/TVsO9O4)
 
 ### Sequence Diagram:
 
@@ -133,13 +133,65 @@ Here are all the diagrams with added value for EventAmplify, all following UML s
 
 ## Data Model
 
-### Users:
+### users:
 - **id**: Unique identifier for each user.
 - **displayName**: User's name.
 - **bio**: User's biography.
 - **location**: Latitude and longitude of the user.
 - **photoUrl**: User's photo.
+- **role**: User's role which could be organizer or attendee.
 - **timestamp**: Server timestamp of the user.
+
+### locations:
+- **id**: Unique identifier for each location.
+- **name**: Location's name.
+- **description**: Location's description.
+- **photoUrl**: Location's photo.
+- **timestamp**: Server timestamp of the location.
+- **events**: List of events in the location.
+
+##### events of locations
+- **id**: Unique identifier for each event.
+- **title**: Event's title.
+- **description**: Event's description.
+- **location**: Latitude and longitude of the event.
+- **photoUrl**: Event's photo.
+- **timestamp**: Server timestamp of the event.
+- **organizer**: Organizer's id.
+- **attendees**: List of attendees' ids.
+- **startDate**: Event's start date.
+- **endDate**: Event's end date.
+- **startTime**: Event's start time.
+- **endTime**: Event's end time.
+- **activities**: List of Activities in the event
+- **organizer**: Organizer's id.
+- **attendees**: List of attendees' ids.
+
+##### organizers of events
+- **id**: Unique identifier for each organizer.
+- **displayName**: Organizer's name.
+- **bio**: Organizer's biography.
+- **location**: Latitude and longitude of the organizer.
+- **photoUrl**: Organizer's photo.
+- **role**: Organizer's role which is organizer.
+- **timestamp**: Server timestamp of the organizer.
+
+##### attendees of events
+- **id**: Unique identifier for each attendee.
+- **displayName**: Attendee's name.
+- **bio**: Attendee's biography.
+- **location**: Latitude and longitude of the attendee.
+- **photoUrl**: Attendee's photo.
+- **role**: Attendee's role which is attendee.
+- **timestamp**: Server timestamp of the attendee.
+
+##### activities of events
+- **id**: Unique identifier for each activity.
+- **title**: Activity's title.
+- **description**: Activity's description.
+- **location**: Object including: Latitude, Longitude, Room: 'A1.203', Route: 'how to get to A1.203'.
+- **photoUrl**: Activity's photo.
+- **timestamp**: Server timestamp of the activity.
 
 ## Acceptance Criteria
 # Acceptance Test Report for EventAmplify

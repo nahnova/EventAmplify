@@ -122,9 +122,9 @@ const ModalScreen = () => {
               marginRight: 8,
               padding: 16,
               borderRadius: 16,
-              backgroundColor: role === "admin" ? "#555" : "#000",
+              backgroundColor: role === "organizer" ? "#555" : "#000",
             }}
-            onPress={() => setRole("admin")}
+            onPress={() => setRole("organizer")}
           >
             <Text
               style={{
@@ -134,7 +134,7 @@ const ModalScreen = () => {
                 color: "#ffffff",
               }}
             >
-              Admin
+              Organizer
             </Text>
           </TouchableOpacity>
 
@@ -144,9 +144,9 @@ const ModalScreen = () => {
               marginLeft: 8,
               padding: 16,
               borderRadius: 16,
-              backgroundColor: role === "user" ? "#555" : "#000",
+              backgroundColor: role === "attendee" ? "#555" : "#000",
             }}
-            onPress={() => setRole("user")}
+            onPress={() => setRole("attendee")}
           >
             <Text
               style={{
@@ -156,7 +156,7 @@ const ModalScreen = () => {
                 color: "#ffffff",
               }}
             >
-              User
+              Attendee
             </Text>
           </TouchableOpacity>
         </View>
