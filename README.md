@@ -168,7 +168,7 @@ TODO: Add Activity Diagram @xavier
 
 ## Data Model
 
-### users
+#### users
 
 - **id**: Unique identifier for each user.
 - **displayName**: User's name.
@@ -178,7 +178,7 @@ TODO: Add Activity Diagram @xavier
 - **role**: User's role which could be organizer or attendee.
 - **timestamp**: Server timestamp of the user.
 
-### locations
+#### locations
 
 - **id**: Unique identifier for each location.
 - **name**: Location's name.
