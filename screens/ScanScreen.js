@@ -41,12 +41,23 @@ const ScanScreen = () => {
     if (eventSnap.exists()) {
       alert("You have already checked in, view the event in your home screen");
     } else {
+      // add user to attendees list in firestore 
       await setDoc(eventRef, {
         id: userInfo.uid,
         displayName: userInfo.displayName,
         photoURL: userInfo.photoURL,
         timestamp: serverTimestamp(),
       });
+      // add event to user events list in firestore (for easy access)
+      await setDoc(
+        doc(db, "users", userInfo.uid, "attendingEvents", eventId),
+        {
+          id: eventId,
+          locationId: locationId,
+          timestamp: serverTimestamp(),
+        },
+        { merge: true }
+      );
       alert("Check in successful!, You can view the event in your home screen");
     }
     navigation.navigate("Home");

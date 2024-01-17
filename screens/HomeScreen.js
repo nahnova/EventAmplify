@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { MessageCircle, Star, Heart, XCircle } from "react-native-feather";
 
 import useAuth from "../hooks/useAuth";
@@ -26,7 +26,9 @@ import { db } from "../firebase";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-  const { userInfo, signOut } = useAuth();
+  const isFocused = useIsFocused();
+  const { userInfo, signOut, user } = useAuth();
+  const [events, setEvents] = useState([]);
 
   useLayoutEffect(() => {
     const unsub = onSnapshot(doc(db, "users", userInfo.uid), (snapshot) => {
@@ -36,6 +38,46 @@ const HomeScreen = () => {
     });
     return unsub;
   }, []);
+
+  const getAttendingEvents = async () => {
+    try {
+      const eventsRef = collection(
+        db,
+        "users",
+        userInfo.uid,
+        "attendingEvents"
+      );
+      const q = query(eventsRef);
+      const querySnapshot = await getDocs(q);
+      const events = [];
+      querySnapshot.forEach((doc) => {
+        events.push(doc.data());
+      });
+
+      // get the actual event data
+      const eventsData = [];
+      for (const event of events) {
+        const eventRef = doc(
+          db,
+          "locations",
+          event.locationId,
+          "events",
+          event.id
+        );
+        const eventSnap = await getDoc(eventRef);
+        eventsData.push(eventSnap.data());
+      }
+      setEvents(eventsData);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (isFocused) {
+      getAttendingEvents();
+    }
+  }, [isFocused]);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -66,24 +108,51 @@ const HomeScreen = () => {
             resizeMode="contain"
           />
         </TouchableOpacity>
-
-        {/* TODO: add misc button */}
-        {/* <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("");
-          }}
-          style={styles.rightButton}
-        >
-          <MessageCircle
-            stroke="#000"
-            width={32}
-            height={32}
-            fill="#000"
-          />
-        </TouchableOpacity> */}
       </View>
       {/* End Header */}
-      {/* TODO: Add: events where user is part of attendees and welcome message etc */}
+      {user?.role === "organizer" ? (
+        <View
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+        >
+          <Text
+            style={{
+              fontSize: 30,
+              fontWeight: "bold",
+              marginBottom: 20,
+              textAlign: "center",
+            }}
+          >
+            Welcome to the organizer home screen
+          </Text>
+        </View>
+      ) : (
+        <View
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+        >
+          <Text
+            style={{
+              fontSize: 30,
+              fontWeight: "bold",
+              marginBottom: 20,
+              textAlign: "center",
+            }}
+          >
+            Welcome to the attendee home screen
+          </Text>
+          <Text>
+            {events.length > 0
+              ? "You are attending the following events"
+              : "You are not attending any events"}
+          </Text>
+          <View>
+            {events.map((event) => (
+              <View key={event.title}>
+                <Text>{event.title}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+      )}
     </SafeAreaView>
   );
 };

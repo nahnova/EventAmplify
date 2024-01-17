@@ -55,7 +55,12 @@ const LocationScreen = () => {
     <>
       {user?.role === "organizer" ? (
         <SafeAreaView>
-          <Text>organizer location screen</Text>
+          <Text style={{
+            fontSize: 30,
+            fontWeight: "bold",
+            marginBottom: 20,
+            textAlign: "center",
+          }}>Locations</Text>
           <FlatList
             data={locations}
             renderItem={({ item }) => (
@@ -74,7 +79,12 @@ const LocationScreen = () => {
         </SafeAreaView>
       ) : (
         <SafeAreaView>
-          <Text>attendee location screen</Text>
+          <Text style={{
+            fontSize: 30,
+            fontWeight: "bold",
+            marginBottom: 20,
+            textAlign: "center",
+          }}>attendee location screen</Text>
           <FlatList
             data={locations}
             renderItem={({ item }) => (

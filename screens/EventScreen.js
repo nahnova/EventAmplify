@@ -59,7 +59,12 @@ const EventScreen = () => {
     <>
       {user?.role === "organizer" ? (
         <SafeAreaView>
-          <Text>organizer event screen</Text>
+          <Text style={{
+            fontSize: 30,
+            fontWeight: "bold",
+            marginBottom: 20,
+            textAlign: "center",
+          }}>organizer event screen</Text>
           <FlatList
             data={events}
             renderItem={({ item }) => (
@@ -95,7 +100,12 @@ const EventScreen = () => {
         </SafeAreaView>
       ) : (
         <SafeAreaView>
-          <Text>attendee event screen</Text>
+          <Text style={{
+            fontSize: 30,
+            fontWeight: "bold",
+            marginBottom: 20,
+            textAlign: "center",
+          }}>attendee event screen</Text>
           <FlatList
             data={events}
             renderItem={({ item }) => (
