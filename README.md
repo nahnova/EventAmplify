@@ -117,19 +117,19 @@ Hieronder volgt een uitbreiding van Use Case 1/11 en een sjabloon
 Here are all the diagrams with added value for EventAmplify, all following UML specifications. With slight modifications to fit the project.
 
 ### Use Case Diagram:
-
+TODO: Add Use Case Diagram @xavier
 
 ### Class Diagram (CONCEPTUAL):
 ![Class Diagram](https://mirri.link/TVsO9O4)
 
 ### Sequence Diagram:
-
+TODO: Add Use Case Diagram @jay
 
 ### State Diagram:
-
+TODO: Add Use Case Diagram @jay
 
 ### Activity Diagram:
-
+TODO: Add Activity Diagram @xavier
 
 ## Data Model
 
