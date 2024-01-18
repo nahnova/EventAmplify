@@ -134,27 +134,20 @@ Hieronder volgt een uitbreiding van Use Case 1/11 en een sjabloon
 
 Here are all the diagrams with added value for EventAmplify, all following UML specifications. With slight modifications to fit the project.
 
-### Use Case Diagram
+### Use Case Diagram by @xaiver
 
-TODO: Add Use Case Diagram @xavier
-
-### Class Diagram (CONCEPTUAL)
+### Class Diagram (CONCEPTUAL) by @noa
 
 ![Class Diagram](https://mirri.link/TVsO9O4)
 
-### Sequence Diagram
+### Sequence Diagram by @jay
 
-TODO: Add Use Case Diagram @jay
+### State Diagram by @jay
 
-### State Diagram
+### Activity Diagram by @xavier
+![Activity Diagram](https://mirri.link/hYhP9aU)
 
-TODO: Add Use Case Diagram @jay
-
-### Activity Diagram
-
-TODO: Add Activity Diagram @xavier
-
-## Data Model
+## Data Model by @noa
 
 #### users
 - **id**: Unique identifier for each user.
@@ -167,7 +160,16 @@ TODO: Add Activity Diagram @xavier
 
 #### attendingEvents of users 
 - **id**: Unique identifier for each event.
-- **locationId**: Location's id.
+- **locationId**: Unique identifier for each location.
+- **event**: entire events object.
+- **location**: entire locations object.
+- **timestamp**: Server timestamp of the event.
+
+#### organizingEvents of users 
+- **id**: Unique identifier for each event.
+- **locationId**: Unique identifier for each location.
+- **event**: entire events object.
+- **location**: entire locations object.
 - **timestamp**: Server timestamp of the event.
 
 #### locations
@@ -217,6 +219,7 @@ TODO: Add Activity Diagram @xavier
 - **title**: Activity's title.
 - **description**: Activity's description.
 - **location**: Object including: Latitude, Longitude, Room: 'A1.203', Route: 'how to get to A1.203'.
+- **time**: activities start time.
 - **photoUrl**: Activity's photo.
 - **timestamp**: Server timestamp of the activity.
 
