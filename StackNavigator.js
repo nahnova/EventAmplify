@@ -10,6 +10,8 @@ import EventDetailScreen from "./screens/EventDetailScreen";
 import EventScreen from "./screens/EventScreen";
 import LocationScreen from "./screens/LocationScreen";
 import QrScreen from "./screens/QrScreen";
+import EventManageScreen from "./screens/EventManageScreen";
+import ActivityManageScreen from "./screens/ActivityManageScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -63,6 +65,14 @@ const StackNavigator = () => {
                           headerShown: false,
                         }}
                       >
+                        <Stack.Screen
+                          name="EventManage"
+                          component={EventManageScreen}
+                        />
+                        <Stack.Screen
+                          name="ActivityManage"
+                          component={ActivityManageScreen}
+                        />
                         <Stack.Screen name="Qr" component={QrScreen} />
                       </Stack.Group>
                     </Stack.Navigator>
@@ -79,6 +89,10 @@ const StackNavigator = () => {
                     <Stack.Navigator>
                       <Stack.Group screenOptions={{ headerShown: false }}>
                         <Stack.Screen name="Home" component={HomeScreen} />
+                        <Stack.Screen
+                          name="EventDetail"
+                          component={EventDetailScreen}
+                        />
                       </Stack.Group>
                       <Stack.Group
                         screenOptions={{
@@ -93,7 +107,7 @@ const StackNavigator = () => {
                 </Tab.Screen>
                 <Tab.Screen name="Events">
                   {() => (
-                    <Stack.Navigator>
+                    <Stack.Navigator screenOptions={{ headerShown: false }}>
                       {/* Flow should be --> Events List ---> Event Pre Details --> Scan Event QR ---> See Entire Event(Map, Activities, etc) */}
                       <Stack.Group>
                         <Stack.Screen
