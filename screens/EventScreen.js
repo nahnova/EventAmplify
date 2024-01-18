@@ -6,9 +6,11 @@ import {
   TouchableOpacity,
   SafeAreaView,
   FlatList,
+  Alert,
 } from "react-native";
 import { collection, onSnapshot, query } from "firebase/firestore";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { Plus } from "react-native-feather";
 import useAuth from "../hooks/useAuth";
 import { db } from "../firebase";
 import ProfileHeader from "../components/ProfileHeader";
@@ -16,7 +18,7 @@ import Header from "../components/Header";
 import ListItem from "../components/ListItem";
 
 const EventScreen = () => {
-  const { userInfo, user } = useAuth();
+  const { user } = useAuth();
   const navigation = useNavigation();
   const [events, setEvents] = useState([]);
   const { params } = useRoute();
@@ -53,10 +55,34 @@ const EventScreen = () => {
           <ProfileHeader />
           {location && events && (
             <Header
-              title="Choose a event"
-              subtitle={`${location?.name} has ${events?.length} ${
+              title="Manage events"
+              subtitle={`location has ${events?.length} ${
                 events?.length === 1 ? "event" : "events"
               }`}
+              hasBackButton={true}
+              rightComponent={
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: "#fff",
+                    padding: 16,
+                    borderRadius: 4,
+                    marginHorizontal: 16,
+                  }}
+                  onPress={() =>
+                    navigation.navigate("EventManage", {
+                      locationId: location.id,
+                    })
+                  }
+                >
+                  <Plus
+                    color={"#000"}
+                    style={{
+                      width: 24,
+                      height: 24,
+                    }}
+                  />
+                </TouchableOpacity>
+              }
             />
           )}
           <FlatList
@@ -78,16 +104,22 @@ const EventScreen = () => {
                   <TouchableOpacity
                     style={styles.eventButton}
                     onPress={() =>
-                      navigation.navigate("EventDetail", {
-                        eventId: item.id,
+                      navigation.navigate("EventManage", {
+                        event: item,
                         locationId: location.id,
                       })
                     }
                   >
-                    <Text>Details</Text>
+                    <Text>Edit</Text>
                   </TouchableOpacity>
                 </View>
                 <ListItem
+                  onPress={() =>
+                    navigation.navigate("EventDetail", {
+                      event: item,
+                      location: location,
+                    })
+                  }
                   title={item.title}
                   description={item.description}
                   date={item.date}
@@ -104,28 +136,41 @@ const EventScreen = () => {
           <ProfileHeader />
           <Header
             title="Choose a event"
-            subtitle="location.title currently has location.lenght events"
+            subtitle={`${location?.name} has ${events?.length} ${
+              events?.length === 1 ? "event" : "events"
+            }`}
           />
           <FlatList
             data={events}
             renderItem={({ item }) => (
               <>
-                <TouchableOpacity
-                  style={styles.eventButton}
-                  onPress={() =>
-                    navigation.navigate("Scan", {
-                      event: item,
-                    })
-                  }
-                >
-                  <Text>Scan</Text>
-                </TouchableOpacity>
                 <ListItem
                   title={item.title}
                   description={item.description}
                   date={item.date}
                   time={item.time}
                   photoUrl={item.photoUrl}
+                  onPress={() =>
+                    Alert.alert(
+                      "Info over inchecken",
+                      "Weet je zeker dat je wilt inchecken? Je krijgt een QR code te zien die je moet scannen bij de ingang van het evenement.",
+                      [
+                        {
+                          text: "Cancel",
+                          onPress: () => console.log("Cancel Pressed"),
+                          style: "cancel",
+                        },
+                        {
+                          text: "OK",
+                          onPress: () =>
+                            navigation.navigate("Scan", {
+                              event: item,
+                              location: location,
+                            }),
+                        },
+                      ]
+                    )
+                  }
                 />
               </>
             )}
@@ -163,10 +208,11 @@ const styles = StyleSheet.create({
     borderTopColor: "#ccc",
   },
   eventButton: {
-    backgroundColor: "#e3e3e3",
+    backgroundColor: "#fff",
     padding: 16,
     borderRadius: 4,
     flex: 1,
     marginHorizontal: 16,
+    alignItems: "center",
   },
 });
