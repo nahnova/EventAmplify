@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, SafeAreaView } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import {
   doc,
   serverTimestamp,
   setDoc,
-  collection,
   getDoc,
 } from "firebase/firestore";
 import { db } from "../firebase";
 import useAuth from "../hooks/useAuth";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import ProfileHeader from "../components/ProfileHeader";
+import Header from "../components/Header";
 
 const ScanScreen = () => {
   const navigation = useNavigation();
   const { userInfo, user } = useAuth();
+  const { params } = useRoute();
+  const { event, location } = params;
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   useEffect(() => {
@@ -41,7 +44,7 @@ const ScanScreen = () => {
     if (eventSnap.exists()) {
       alert("You have already checked in, view the event in your home screen");
     } else {
-      // add user to attendees list in firestore 
+      // add user to attendees list in firestore
       await setDoc(eventRef, {
         id: userInfo.uid,
         displayName: userInfo.displayName,
@@ -54,6 +57,8 @@ const ScanScreen = () => {
         {
           id: eventId,
           locationId: locationId,
+          event,
+          location,
           timestamp: serverTimestamp(),
         },
         { merge: true }
@@ -71,15 +76,32 @@ const ScanScreen = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <BarCodeScanner
-        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-        style={StyleSheet.absoluteFillObject}
+    <SafeAreaView style={styles.container}>
+      <ProfileHeader />
+      <Header
+        title={`${event.title} check in`}
+        subtitle={`scan the qr code to check in`}
+        hasBackButton={true}
       />
-      {scanned && (
-        <Button title={"Tap to Scan Again"} onPress={() => setScanned(false)} />
-      )}
-    </View>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <BarCodeScanner
+          onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+          style={StyleSheet.absoluteFillObject}
+        />
+        {scanned && (
+          <Button
+            title={"Tap to Scan Again"}
+            onPress={() => setScanned(false)}
+          />
+        )}
+      </View>
+    </SafeAreaView>
   );
 };
 
