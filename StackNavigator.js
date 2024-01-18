@@ -44,7 +44,7 @@ const StackNavigator = () => {
                 </Tab.Screen>
                 <Tab.Screen name="Events">
                   {() => (
-                    <Stack.Navigator>
+                    <Stack.Navigator screenOptions={{ headerShown: false }}>
                       {/* Flow should be --> Location Select ---> Events Create ---> Event Details */}
                       <Stack.Group>
                         <Stack.Screen

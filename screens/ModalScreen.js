@@ -54,7 +54,7 @@ const ModalScreen = () => {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      const { photoURL, bio, displayName } = docSnap.data();
+      const { photoURL, bio, displayName, role } = docSnap.data();
       setDisplayName(displayName);
       setPicture(photoURL);
       setBio(bio);
@@ -83,11 +83,6 @@ const ModalScreen = () => {
 
   return (
     <View style={styles.modalContainer}>
-      {/* <Image
-        source={{ uri: "https://mirri.link/cKC3KEw" }}
-        style={{ width: 100, height: 100 }}
-        resizeMode="contain"
-      /> */}
       <Text style={styles.modalText}>Welcome {userInfo?.displayName}</Text>
       <ScrollView
         style={styles.formContainer}

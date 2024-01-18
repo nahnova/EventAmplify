@@ -2,39 +2,32 @@ import React, { useEffect, useState } from "react";
 import {
   Text,
   StyleSheet,
-  Image,
-  TextInput,
   View,
   TouchableOpacity,
-  ScrollView,
   SafeAreaView,
   FlatList,
 } from "react-native";
-import {
-  collection,
-  doc,
-  getDoc,
-  onSnapshot,
-  query,
-  serverTimestamp,
-  setDoc,
-} from "firebase/firestore";
+import { collection, onSnapshot, query } from "firebase/firestore";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import MapView from "react-native-maps";
 import useAuth from "../hooks/useAuth";
 import { db } from "../firebase";
+import ProfileHeader from "../components/ProfileHeader";
+import Header from "../components/Header";
+import ListItem from "../components/ListItem";
 
 const EventScreen = () => {
+  const { userInfo, user } = useAuth();
+  const navigation = useNavigation();
   const [events, setEvents] = useState([]);
   const { params } = useRoute();
-  const { locationId } = params;
+  const { location } = params;
   useEffect(() => {
     let unsub;
     const fetchEvents = async () => {
       try {
         // checks if user has already passed a profile
         unsub = onSnapshot(
-          query(collection(db, "locations", locationId, "events")),
+          query(collection(db, "locations", location.id, "events")),
           (snapshot) => {
             setEvents(
               snapshot.docs.map((doc) => ({
@@ -53,30 +46,30 @@ const EventScreen = () => {
     return unsub;
   }, []);
 
-  const { userInfo, user } = useAuth();
-  const navigation = useNavigation();
   return (
     <>
       {user?.role === "organizer" ? (
         <SafeAreaView>
-          <Text style={{
-            fontSize: 30,
-            fontWeight: "bold",
-            marginBottom: 20,
-            textAlign: "center",
-          }}>organizer event screen</Text>
+          <ProfileHeader />
+          {location && events && (
+            <Header
+              title="Choose a event"
+              subtitle={`${location?.name} has ${events?.length} ${
+                events?.length === 1 ? "event" : "events"
+              }`}
+            />
+          )}
           <FlatList
             data={events}
             renderItem={({ item }) => (
-              <View style={styles.eventItem}>
-                <Text style={styles.eventTitle}>{item.title}</Text>
+              <>
                 <View style={styles.buttonContainer}>
                   <TouchableOpacity
                     style={styles.eventButton}
                     onPress={() =>
                       navigation.navigate("Qr", {
                         event: item,
-                        locationId,
+                        locationId: location.id,
                       })
                     }
                   >
@@ -87,44 +80,56 @@ const EventScreen = () => {
                     onPress={() =>
                       navigation.navigate("EventDetail", {
                         eventId: item.id,
-                        locationId,
+                        locationId: location.id,
                       })
                     }
                   >
-                    <Text>EventDetail</Text>
+                    <Text>Details</Text>
                   </TouchableOpacity>
                 </View>
-              </View>
+                <ListItem
+                  title={item.title}
+                  description={item.description}
+                  date={item.date}
+                  time={item.time}
+                  photoUrl={item.photoUrl}
+                />
+              </>
             )}
+            keyExtractor={(item) => item.id + "organizing"}
           />
         </SafeAreaView>
       ) : (
         <SafeAreaView>
-          <Text style={{
-            fontSize: 30,
-            fontWeight: "bold",
-            marginBottom: 20,
-            textAlign: "center",
-          }}>attendee event screen</Text>
+          <ProfileHeader />
+          <Header
+            title="Choose a event"
+            subtitle="location.title currently has location.lenght events"
+          />
           <FlatList
             data={events}
             renderItem={({ item }) => (
-              <View style={styles.eventItem}>
-                <Text style={styles.eventTitle}>{item.title}</Text>
-                <View style={styles.buttonContainer}>
-                  <TouchableOpacity
-                    style={styles.eventButton}
-                    onPress={() =>
-                      navigation.navigate("Scan", {
-                        event: item,
-                      })
-                    }
-                  >
-                    <Text>Scan</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
+              <>
+                <TouchableOpacity
+                  style={styles.eventButton}
+                  onPress={() =>
+                    navigation.navigate("Scan", {
+                      event: item,
+                    })
+                  }
+                >
+                  <Text>Scan</Text>
+                </TouchableOpacity>
+                <ListItem
+                  title={item.title}
+                  description={item.description}
+                  date={item.date}
+                  time={item.time}
+                  photoUrl={item.photoUrl}
+                />
+              </>
             )}
+            keyExtractor={(item) => item.id + "organizing"}
           />
         </SafeAreaView>
       )}
@@ -151,11 +156,17 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 16,
+    borderTopWidth: 1,
+    paddingVertical: 8,
+    borderTopColor: "#ccc",
   },
   eventButton: {
     backgroundColor: "#e3e3e3",
     padding: 16,
     borderRadius: 4,
-    margin: 8,
+    flex: 1,
+    marginHorizontal: 16,
   },
 });

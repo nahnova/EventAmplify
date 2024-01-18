@@ -1,16 +1,6 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TouchableOpacity,
-  Image,
-  StyleSheet,
-} from "react-native";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { View, Text, SafeAreaView, FlatList } from "react-native";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
-import { MessageCircle, Star, Heart, XCircle } from "react-native-feather";
-
-import useAuth from "../hooks/useAuth";
 import {
   collection,
   doc,
@@ -18,17 +8,20 @@ import {
   getDocs,
   onSnapshot,
   query,
-  serverTimestamp,
-  setDoc,
-  where,
 } from "firebase/firestore";
+
+import useAuth from "../hooks/useAuth";
 import { db } from "../firebase";
+import ProfileHeader from "../components/ProfileHeader";
+import Header from "../components/Header";
+import ListItem from "../components/ListItem";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
-  const { userInfo, signOut, user } = useAuth();
-  const [events, setEvents] = useState([]);
+  const { userInfo, user } = useAuth();
+  const [attendingEvents, setAttendingEvetns] = useState([]);
+  const [organizingEvents, setOrganizingEvents] = useState([]);
 
   useLayoutEffect(() => {
     const unsub = onSnapshot(doc(db, "users", userInfo.uid), (snapshot) => {
@@ -67,123 +60,116 @@ const HomeScreen = () => {
         const eventSnap = await getDoc(eventRef);
         eventsData.push(eventSnap.data());
       }
-      setEvents(eventsData);
+      setAttendingEvetns(eventsData);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    }
+  };
+
+  const getOrganizingEvents = async () => {
+    try {
+      const eventsRef = collection(
+        db,
+        "users",
+        userInfo.uid,
+        "organizingEvents"
+      );
+      const q = query(eventsRef);
+      const querySnapshot = await getDocs(q);
+      const events = [];
+      querySnapshot.forEach((doc) => {
+        events.push(doc.data());
+      });
+
+      // get the actual event data
+      const eventsData = [];
+      for (const event of events) {
+        const eventRef = doc(
+          db,
+          "locations",
+          event.locationId,
+          "events",
+          event.id
+        );
+        const eventSnap = await getDoc(eventRef);
+        eventsData.push(eventSnap.data());
+      }
+      setOrganizingEvents(eventsData);
+      console.log(eventsData);
     } catch (error) {
       console.error("Error fetching events:", error);
     }
   };
 
   useEffect(() => {
+    getOrganizingEvents();
+    getAttendingEvents();
+  }, []);
+
+  useEffect(() => {
     if (isFocused) {
-      getAttendingEvents();
+      {
+        user?.role === "organizer"
+          ? getOrganizingEvents()
+          : getAttendingEvents();
+      }
     }
   }, [isFocused]);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {/* Start Header */}
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.profileImageButton}
-          onPress={() => {
-            navigation.navigate("Modal");
-          }}
-        >
-          <Image
-            source={{ uri: userInfo?.photoURL }}
-            style={styles.profileImage}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.logoButton}
-          onPress={() => {
-            signOut();
-          }}
-        >
-          <Image
-            source={{
-              uri: "https://mirri.link/HisRdM1",
-            }}
-            style={styles.logo}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
-      </View>
-      {/* End Header */}
+      <ProfileHeader />
       {user?.role === "organizer" ? (
-        <View
-          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-        >
-          <Text
-            style={{
-              fontSize: 30,
-              fontWeight: "bold",
-              marginBottom: 20,
-              textAlign: "center",
-            }}
-          >
-            Welcome to the organizer home screen
-          </Text>
-        </View>
+        <>
+          <Header
+            title={`Welcome ${userInfo.displayName},`}
+            subtitle={
+              organizingEvents.length === 0
+                ? "U are not organizing any events yet."
+                : `U are organizing ${organizingEvents.length} events.`
+            }
+          />
+          <FlatList
+            data={organizingEvents}
+            renderItem={({ item }) => (
+              <ListItem
+                title={item.title}
+                description={item.description}
+                date={item.date}
+                time={item.time}
+                photoUrl={item.photoUrl}
+              />
+            )}
+            keyExtractor={(item) => item.id + "organizing"}
+          />
+        </>
       ) : (
-        <View
-          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-        >
-          <Text
-            style={{
-              fontSize: 30,
-              fontWeight: "bold",
-              marginBottom: 20,
-              textAlign: "center",
-            }}
-          >
-            Welcome to the attendee home screen
-          </Text>
-          <Text>
-            {events.length > 0
-              ? "You are attending the following events"
-              : "You are not attending any events"}
-          </Text>
-          <View>
-            {events.map((event) => (
-              <View key={event.title}>
-                <Text>{event.title}</Text>
-              </View>
-            ))}
-          </View>
-        </View>
+        <>
+          <Header
+            title={`Welcome ${userInfo.displayName},`}
+            subtitle={
+              attendingEvents.length === 0
+                ? "U are not attending any events yet."
+                : `U are attending ${attendingEvents.length} events.`
+            }
+          />
+          <FlatList
+            data={attendingEvents}
+            renderItem={({ item }) => (
+              <ListItem
+                title={item.title}
+                description={item.description}
+                date={item.date}
+                time={item.time}
+                photoUrl={item.photoUrl}
+              />
+            )}
+            keyExtractor={(item) => item.id + "attending"}
+          />
+        </>
       )}
     </SafeAreaView>
   );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  header: {
-    justifyContent: "center",
-    alignItems: "center",
-    position: "relative",
-  },
-  profileImageButton: {
-    position: "absolute",
-    left: -5,
-    top: 3,
-  },
-  profileImage: {
-    marginLeft: 16,
-    width: 48,
-    height: 48,
-    borderRadius: 100,
-  },
-  logoButton: {},
-  logo: {
-    width: 64,
-    height: 48,
-  },
-  chatButton: {
-    position: "absolute",
-    right: 8,
-    top: 3,
-  },
-});
