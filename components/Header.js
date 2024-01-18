@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Bold, ChevronLeft } from "react-native-feather";
 
-const Header = ({ title, subtitle, hasBackButton }) => {
+const Header = ({ title, subtitle, hasBackButton, rightComponent }) => {
   const navigation = useNavigation();
 
   return (
@@ -26,12 +26,15 @@ const Header = ({ title, subtitle, hasBackButton }) => {
             {title}
           </Text>
           {subtitle && (
-            <Text style={{ marginTop: 8, fontSize: 16, color: "#000000" }}>
-              {subtitle}
-            </Text>
+            <View style={styles.subtitleContainer}>
+              <Text style={styles.subtitleText}>{subtitle}</Text>
+            </View>
           )}
         </View>
       </View>
+      {rightComponent && (
+        <View style={{ marginLeft: "auto" }}>{rightComponent}</View>
+      )}
     </View>
   );
 };
@@ -44,5 +47,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  subtitleContainer: {
+    maxWidth: 250, // Set your desired maximum width
+    marginTop: 8,
+  },
+  subtitleText: {
+    fontSize: 16,
+    color: "#000000",
   },
 });

@@ -8,9 +8,11 @@ const ListItem = ({ title, description, date, time, photoUrl, onPress }) => {
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
         {description && <Text style={styles.description}>{description}</Text>}
-        {date && time && (
-          <Text style={styles.dateTime}>{`${date} ${time}`}</Text>
-        )}
+        <View style={{ flexDirection: "row" }}>
+          {date && <Text style={styles.dateTime}>{`${date}`}</Text>}
+          <View style={{ width: 8 }} />
+          {time && <Text style={styles.dateTime}>{time}</Text>}
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -30,6 +32,7 @@ const styles = StyleSheet.create({
     width: "30%",
     height: "100%",
     marginRight: 16,
+    borderRadius: 8,
   },
   textContainer: {
     flex: 1,
