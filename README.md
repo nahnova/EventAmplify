@@ -173,11 +173,9 @@ TODO: Add Activity Diagram @xavier
 #### locations
 - **id**: Unique identifier for each location.
 - **name**: Location's name.
-- **description**: Location's description.
-- **location**: Latitude and longitude of the location. street, city, country.
+- **location**: Latitude and longitude of the location. address: 'Nieuw Eyckholt 300, 6419 DJ Heerlen, Netherlands'.
 - **photoUrl**: Location's photo.
 - **timestamp**: Server timestamp of the location.
-- **events**: List of events in the location.
 
 ##### events of locations
 - **id**: Unique identifier for each event.
