@@ -6,8 +6,6 @@ import useAuth from "../hooks/useAuth";
 
 const LoginScreen = () => {
   const { promptAsync } = useAuth();
-  const navigation = useNavigation();
-
   return (
     <LinearGradient
       colors={["#000", "#333334", "#fff"]}

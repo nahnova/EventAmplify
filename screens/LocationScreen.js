@@ -32,8 +32,8 @@ const LocationScreen = () => {
     return unsub;
   }, []);
 
-  const { userInfo, user } = useAuth();
-  console.log("user", user);
+  const { user } = useAuth();
+
   const navigation = useNavigation();
   return (
     <>
@@ -41,7 +41,7 @@ const LocationScreen = () => {
         <SafeAreaView>
           <ProfileHeader />
           <Header title="Choose a location" subtitle="All current zuyd locations" />
-          <FlatList
+          <FlatList 
             data={locations}
             renderItem={({ item }) => (
               <ListItem
@@ -61,6 +61,9 @@ const LocationScreen = () => {
           <ProfileHeader />
           <Header title="Choose a location" subtitle="All current zuyd locations"/>
           <FlatList
+           style={{
+            height: "100%",
+           }}
             data={locations}
             renderItem={({ item }) => (
               <ListItem

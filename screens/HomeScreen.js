@@ -4,7 +4,6 @@ import { useNavigation, useIsFocused } from "@react-navigation/native";
 import {
   collection,
   doc,
-  getDoc,
   getDocs,
   onSnapshot,
   query,
@@ -20,7 +19,7 @@ const HomeScreen = () => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const { userInfo, user } = useAuth();
-  const [attendingEvents, setAttendingEvetns] = useState([]);
+  const [attendingEvents, setAttendingEvents] = useState([]);
   const [organizingEvents, setOrganizingEvents] = useState([]);
 
   useLayoutEffect(() => {
@@ -46,21 +45,7 @@ const HomeScreen = () => {
       querySnapshot.forEach((doc) => {
         events.push(doc.data());
       });
-
-      // get the actual event data
-      const eventsData = [];
-      for (const event of events) {
-        const eventRef = doc(
-          db,
-          "locations",
-          event.locationId,
-          "events",
-          event.id
-        );
-        const eventSnap = await getDoc(eventRef);
-        eventsData.push(eventSnap.data());
-      }
-      setAttendingEvetns(eventsData);
+      setAttendingEvents(events);
     } catch (error) {
       console.error("Error fetching events:", error);
     }
@@ -80,22 +65,7 @@ const HomeScreen = () => {
       querySnapshot.forEach((doc) => {
         events.push(doc.data());
       });
-
-      // get the actual event data
-      const eventsData = [];
-      for (const event of events) {
-        const eventRef = doc(
-          db,
-          "locations",
-          event.locationId,
-          "events",
-          event.id
-        );
-        const eventSnap = await getDoc(eventRef);
-        eventsData.push(eventSnap.data());
-      }
-      setOrganizingEvents(eventsData);
-      console.log(eventsData);
+      setOrganizingEvents(events);
     } catch (error) {
       console.error("Error fetching events:", error);
     }
@@ -104,6 +74,7 @@ const HomeScreen = () => {
   useEffect(() => {
     getOrganizingEvents();
     getAttendingEvents();
+    console.log(attendingEvents);
   }, []);
 
   useEffect(() => {
@@ -132,12 +103,19 @@ const HomeScreen = () => {
           <FlatList
             data={organizingEvents}
             renderItem={({ item }) => (
+              // TODO: should be able to view event analytics here
               <ListItem
-                title={item.title}
-                description={item.description}
-                date={item.date}
-                time={item.time}
-                photoUrl={item.photoUrl}
+                title={item?.event?.title}
+                description={item?.event?.description}
+                date={item?.event?.date}
+                time={item?.event?.time}
+                photoUrl={item?.event?.photoUrl}
+                onPress={() =>
+                  navigation.navigate("EventManage", {
+                    event: item.event,
+                    location: item.location,
+                  })
+                }
               />
             )}
             keyExtractor={(item) => item.id + "organizing"}
@@ -157,11 +135,17 @@ const HomeScreen = () => {
             data={attendingEvents}
             renderItem={({ item }) => (
               <ListItem
-                title={item.title}
-                description={item.description}
-                date={item.date}
-                time={item.time}
-                photoUrl={item.photoUrl}
+                title={item.event.title}
+                description={item.event.description}
+                date={item.event.date}
+                time={item.event.time}
+                photoUrl={item.event.photoUrl}
+                onPress={() =>
+                  navigation.navigate("EventDetail", {
+                    event: item.event,
+                    location: item.location,
+                  })
+                }
               />
             )}
             keyExtractor={(item) => item.id + "attending"}
