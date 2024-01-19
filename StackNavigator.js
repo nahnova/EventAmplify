@@ -108,18 +108,18 @@ const StackNavigator = () => {
                 <Tab.Screen name="Events">
                   {() => (
                     <Stack.Navigator screenOptions={{ headerShown: false }}>
-                      {/* Flow should be --> Events List ---> Event Pre Details --> Scan Event QR ---> See Entire Event(Map, Activities, etc) */}
+                      {/*TODO: Flow should be --> Events List ---> Event Pre Details --> Scan Event QR ---> See Entire Event(Map, Activities, etc) */}
                       <Stack.Group>
                         <Stack.Screen
                           name="Location"
                           component={LocationScreen}
                         />
                         <Stack.Screen name="Event" component={EventScreen} />
-                        <Stack.Screen name="Scan" component={ScanScreen} />
                         <Stack.Screen
                           name="EventDetail"
                           component={EventDetailScreen}
                         />
+                        <Stack.Screen name="Scan" component={ScanScreen} />
                       </Stack.Group>
                     </Stack.Navigator>
                   )}
