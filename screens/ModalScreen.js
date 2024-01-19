@@ -32,10 +32,10 @@ const ModalScreen = () => {
       displayName: displayName,
       photoURL: picture,
       bio: bio,
-      location: {
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-      },
+      // location: {
+      //   latitude: location.coords.latitude,
+      //   longitude: location.coords.longitude,
+      // },
       role: role,
       timestamp: serverTimestamp(),
     })
