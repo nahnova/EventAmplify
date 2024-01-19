@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 
-const ListItem = ({ title, description, date, time, photoUrl, onPress }) => {
+const ListItem = ({ title, description, date, time, photoUrl, onPress, room }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image source={{ uri: photoUrl }} style={styles.image} />
@@ -12,6 +12,8 @@ const ListItem = ({ title, description, date, time, photoUrl, onPress }) => {
           {date && <Text style={styles.dateTime}>{`${date}`}</Text>}
           <View style={{ width: 8 }} />
           {time && <Text style={styles.dateTime}>{time}</Text>}
+          <View style={{ width: 8 }} />
+          {room && <Text style={styles.dateTime}>{room}</Text>}
         </View>
       </View>
     </TouchableOpacity>
