@@ -9,11 +9,18 @@ import {
   Alert,
 } from "react-native";
 import React from "react";
+import {
+  doc,
+  serverTimestamp,
+  setDoc,
+  getDoc,
+} from "firebase/firestore";
 import { useRoute } from "@react-navigation/native";
 import { CheckSquare } from "react-native-feather";
 import ProfileHeader from "../components/ProfileHeader";
 import Header from "../components/Header";
 import useAuth from "../hooks/useAuth";
+import { db } from "../firebase";
 
 const ActivityDetailScreen = () => {
   const { userInfo } = useAuth();
