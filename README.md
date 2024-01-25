@@ -13,12 +13,9 @@
 
 ### Assignment Description
 
-## Design
 ### Wireframes
 ![Wireframe Attendees](https://mirri.link/idMKga5)
 ![Wireframes Organizers](https://mirri.link/beu0H5S)
-### High Fidelity Design
-![High Fidelity Design](https://www.figma.com/file/gxSWRTmZfQqxtPYEfD79lz/EventAmplify---V1?type=design&node-id=1%3A2&mode=design&t=ouFTBBN0VObApzbp-1)
 
 ## Technical Stack
 
@@ -142,7 +139,8 @@ Here are all the diagrams with added value for EventAmplify, all following UML s
 
 ### Sequence Diagram by @jay
 
-### State Diagram by @jay
+### State Diagram by @noa
+![State Diagram](https://mirri.link/61NXHNZ)
 
 ### Activity Diagram by @xavier
 ![Activity Diagram](https://mirri.link/hYhP9aU)
