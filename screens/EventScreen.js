@@ -151,25 +151,10 @@ const EventScreen = () => {
                   time={item.time}
                   photoUrl={item.photoUrl}
                   onPress={() =>
-                    Alert.alert(
-                      "Info over inchecken",
-                      "Weet je zeker dat je wilt inchecken? Je krijgt een QR code te zien die je moet scannen bij de ingang van het evenement.",
-                      [
-                        {
-                          text: "Cancel",
-                          onPress: () => console.log("Cancel Pressed"),
-                          style: "cancel",
-                        },
-                        {
-                          text: "OK",
-                          onPress: () =>
-                            navigation.navigate("Scan", {
-                              event: item,
-                              location: location,
-                            }),
-                        },
-                      ]
-                    )
+                    navigation.navigate("EventDetail", {
+                      event: item,
+                      location: location,
+                    })
                   }
                 />
               </>
