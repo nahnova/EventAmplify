@@ -7,25 +7,22 @@ import {
   SafeAreaView,
   View,
   FlatList,
+  Alert,
 } from "react-native";
-import {
-  collection,
-  onSnapshot,
-  query,
-} from "firebase/firestore";
+import { collection, onSnapshot, query } from "firebase/firestore";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import useAuth from "../hooks/useAuth";
 import { db } from "../firebase";
 import ProfileHeader from "../components/ProfileHeader";
 import Header from "../components/Header";
-import { Plus } from "react-native-feather";
+import { Plus, Maximize } from "react-native-feather";
 import ListItem from "../components/ListItem";
 
 const EventDetailScreen = () => {
   const { userInfo, user } = useAuth();
   const navigation = useNavigation();
   const { params } = useRoute();
-  const { location, event, } = params;
+  const { location, event, isComingFromHome } = params;
 
   const [activities, setActivities] = useState([]);
 
@@ -144,6 +141,41 @@ const EventDetailScreen = () => {
             title={`Welcome to ${event.title}`}
             subtitle={`${event.description} at ${event.time}`}
             hasBackButton={true}
+            rightComponent={
+              !isComingFromHome && (
+                <TouchableOpacity
+                  onPress={() => {
+                    Alert.alert(
+                      "Info over inchecken",
+                      "Weet je zeker dat je wilt inchecken? Je krijgt een QR code te zien die je moet scannen bij de ingang van het evenement.",
+                      [
+                        {
+                          text: "Cancel",
+                          onPress: () => console.log("Cancel Pressed"),
+                          style: "cancel",
+                        },
+                        {
+                          text: "OK",
+                          onPress: () =>
+                            navigation.navigate("Scan", {
+                              event: event,
+                              location: location,
+                            }),
+                        },
+                      ]
+                    );
+                  }}
+                >
+                  <Maximize
+                    color={"#000"}
+                    style={{
+                      width: 24,
+                      height: 24,
+                    }}
+                  />
+                </TouchableOpacity>
+              )
+            }
           />
           <Image source={{ uri: event.photoUrl }} style={styles.image} />
           <Header
