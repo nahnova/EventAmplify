@@ -144,6 +144,7 @@ const HomeScreen = () => {
                   navigation.navigate("EventDetail", {
                     event: item.event,
                     location: item.location,
+                    isComingFromHome: true,
                   })
                 }
               />
