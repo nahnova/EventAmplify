@@ -134,16 +134,16 @@ Here are all the diagrams with added value for EventAmplify, all following UML s
 ### Use Case Diagram by @xaiver
 
 ### Class Diagram (CONCEPTUAL) by @noa
-
 ![Class Diagram](https://mirri.link/TVsO9O4)
 
 ### Sequence Diagram by @jay
+![Sequence Diagram](https://mirri.link/27WSMpv)
 
 ### State Diagram by @noa
 ![State Diagram](https://mirri.link/61NXHNZ)
 
 ### Activity Diagram by @xavier
-![Activity Diagram](https://mirri.link/hYhP9aU)
+![Activity Diagram](https://mirri.link/N3djlux)
 
 ## Data Model by @noa
 
