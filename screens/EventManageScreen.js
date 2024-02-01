@@ -71,6 +71,17 @@ const EventManageScreen = () => {
         .catch((error) => {
           console.error("Error writing document: ", error);
         });
+      setDoc(
+        doc(db, "users", userInfo.uid, "organizingEvents", event.id),
+        {
+          id: event.id,
+          locationId: locationId,
+          event,
+          timestamp: serverTimestamp(),
+        },
+        { merge: true }
+      );
+      alert("Check in successful!, You can view the event in your home screen");
     } else {
       addDoc(eventsCollectionRef, eventPayload)
         .then(() => {
