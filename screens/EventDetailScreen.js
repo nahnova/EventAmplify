@@ -15,7 +15,7 @@ import useAuth from "../hooks/useAuth";
 import { db } from "../firebase";
 import ProfileHeader from "../components/ProfileHeader";
 import Header from "../components/Header";
-import { Plus, Maximize } from "react-native-feather";
+import { Plus, Maximize, Map } from "react-native-feather";
 import ListItem from "../components/ListItem";
 
 const EventDetailScreen = () => {
@@ -142,39 +142,76 @@ const EventDetailScreen = () => {
             subtitle={`${event.description} at ${event.time}`}
             hasBackButton={true}
             rightComponent={
-              !isComingFromHome && (
-                <TouchableOpacity
-                  onPress={() => {
-                    Alert.alert(
-                      "Info over inchecken",
-                      "Weet je zeker dat je wilt inchecken? Je krijgt een QR code te zien die je moet scannen bij de ingang van het evenement.",
-                      [
-                        {
-                          text: "Cancel",
-                          onPress: () => console.log("Cancel Pressed"),
-                          style: "cancel",
-                        },
-                        {
-                          text: "OK",
-                          onPress: () =>
-                            navigation.navigate("Scan", {
-                              event: event,
-                              location: location,
-                            }),
-                        },
-                      ]
-                    );
-                  }}
-                >
-                  <Maximize
-                    color={"#000"}
-                    style={{
-                      width: 24,
-                      height: 24,
+              <>
+                {isComingFromHome && (
+                  <TouchableOpacity
+                    onPress={() => {
+                      Alert.alert(
+                        "Je gaat nu naar de kaart",
+                        "Weet je zeker dat je naar de kaart wilt gaan? Je krijgt een kaart te zien met de locaties van de activiteiten.",
+                        [
+                          {
+                            text: "Cancel",
+                            onPress: () => console.log("Cancel Pressed"),
+                            style: "cancel",
+                          },
+                          {
+                            text: "OK",
+                            onPress: () =>
+                              navigation.navigate("Map", {
+                                event: event,
+                                location: location,
+                              }),
+                          },
+                        ]
+                      );
                     }}
-                  />
-                </TouchableOpacity>
-              )
+                  >
+                    <Map
+                      color={"#000"}
+                      style={{
+                        width: 24,
+                        height: 24,
+                      }}
+                    />
+                  </TouchableOpacity>
+                )}
+                {!isComingFromHome && (
+                  <TouchableOpacity
+                    onPress={() => {
+                      Alert.alert(
+                        "Info over inchecken",
+                        "Weet je zeker dat je wilt inchecken? Je krijgt een QR code te zien die je moet scannen bij de ingang van het evenement.",
+                        [
+                          {
+                            text: "Cancel",
+                            onPress: () => console.log("Cancel Pressed"),
+                            style: "cancel",
+                          },
+                          {
+                            text: "OK",
+                            onPress: () =>
+                              navigation.navigate("Scan", {
+                                event: event,
+                                location: location,
+                              }),
+                          },
+                        ]
+                      );
+                    }}
+                  >
+                    <Maximize
+                      color={"#000"}
+                      style={{
+                        width: 24,
+                        height: 24,
+                      }}
+                    />
+                  </TouchableOpacity>
+                )}
+
+                {/* Render map screen or related components here */}
+              </>
             }
           />
           <Image source={{ uri: event.photoUrl }} style={styles.image} />

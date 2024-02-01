@@ -111,9 +111,9 @@ const HomeScreen = () => {
                 time={item?.event?.time}
                 photoUrl={item?.event?.photoUrl}
                 onPress={() =>
-                  navigation.navigate("EventManage", {
+                  navigation.navigate("EventAnalytic", {
                     event: item.event,
-                    location: item.location,
+                    locationId: item.locationId,
                   })
                 }
               />

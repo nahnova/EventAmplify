@@ -64,7 +64,7 @@ const EventManageScreen = () => {
         .then(() => {
           console.log("Document successfully written!");
           Alert.alert(
-            "Event successfully updated! U may now close this modal 🎉"
+            "Event successfully updated! U may now close this modal, the event will also be evailable at the home screen for analytics 🎉"
           );
           navigation.goBack();
         })
@@ -81,7 +81,6 @@ const EventManageScreen = () => {
         },
         { merge: true }
       );
-      alert("Check in successful!, You can view the event in your home screen");
     } else {
       addDoc(eventsCollectionRef, eventPayload)
         .then(() => {
