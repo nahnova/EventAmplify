@@ -13,6 +13,8 @@ import QrScreen from "./screens/QrScreen";
 import EventManageScreen from "./screens/EventManageScreen";
 import ActivityManageScreen from "./screens/ActivityManageScreen";
 import ActivityDetailScreen from "./screens/ActivityDetailScreen";
+import EventAnalyticScreen from "./screens/EventAnalyticScreen";
+import MapScreen from "./screens/MapScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -33,6 +35,10 @@ const StackNavigator = () => {
                     <Stack.Navigator>
                       <Stack.Group screenOptions={{ headerShown: false }}>
                         <Stack.Screen name="Home" component={HomeScreen} />
+                        <Stack.Screen
+                          name="EventAnalytic"
+                          component={EventAnalyticScreen}
+                        />
                       </Stack.Group>
                       <Stack.Group
                         screenOptions={{
@@ -94,7 +100,8 @@ const StackNavigator = () => {
                           name="EventDetail"
                           component={EventDetailScreen}
                         />
-                         <Stack.Screen
+                        <Stack.Screen name="Map" component={MapScreen} />
+                        <Stack.Screen
                           name="ActivityDetail"
                           component={ActivityDetailScreen}
                         />

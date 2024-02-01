@@ -12,30 +12,30 @@ import {
   onSnapshot,
   query,
 } from "firebase/firestore";
+import MapView, { Marker } from "react-native-maps";
 
 import useAuth from "../hooks/useAuth";
 import { db } from "../firebase";
 import ProfileHeader from "../components/ProfileHeader";
 import Header from "../components/Header";
-import ListItem from "../components/ListItem";
 
-const EventAnalyticScreen = () => {
+const MapScreen = () => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const { userInfo, user } = useAuth();
   const { params } = useRoute();
-  const { locationId, event } = params;
-  const [attendees, setAttendees] = useState([]);
+  const { location, event } = params;
+  const [activities, setActivities] = useState([]);
 
-  const getAttendeesForEvents = async () => {
+  const getActivitiesForEvents = async () => {
     try {
       const eventsRef = collection(
         db,
         "locations",
-        locationId,
+        location.id,
         "events",
         event.id,
-        "attendees"
+        "activities"
       );
       const q = query(eventsRef);
       const querySnapshot = await getDocs(q);
@@ -43,45 +43,48 @@ const EventAnalyticScreen = () => {
       querySnapshot.forEach((doc) => {
         events.push(doc.data());
       });
-      setAttendees(events);
+      setActivities(events);
     } catch (error) {
       console.error("Error fetching events:", error);
     }
   };
 
   useEffect(() => {
-    getAttendeesForEvents();
+    getActivitiesForEvents();
   }, []);
 
   useEffect(() => {
     if (isFocused) {
-      getAttendeesForEvents();
+      getActivitiesForEvents();
     }
   }, [isFocused]);
+
+  console.log(activities);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ProfileHeader />
       <>
         <Header
-          title={`${event.title} Analytics,`}
-          subtitle={"These are all users which have checked in to your event."}
+          title={`${event.title} Map`}
+          subtitle={"All activities for this event are shown below"}
         />
-        <FlatList
-          data={attendees}
-          renderItem={({ item }) => (
-            <ListItem
-              title={item?.displayName}
-              photoUrl={item.photoURL}
-              description={"user has checked in for event at"}
-              time={item.timestamp.toDate().toLocaleString()}
+        <MapView style={{ flex: 1 }}>
+          {activities.map((activity, index) => (
+            <Marker
+              key={index}
+              coordinate={{
+                latitude: parseFloat(activity.location.latitude),
+                longitude: parseFloat(activity.location.longitude),
+              }}
+              title={activity.title}
+              description={activity.description}
             />
-          )}
-          keyExtractor={(item) => item.id + "organizing"}
-        />
+          ))}
+        </MapView>
       </>
     </SafeAreaView>
   );
 };
 
-export default EventAnalyticScreen;
+export default MapScreen;

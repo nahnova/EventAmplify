@@ -64,13 +64,23 @@ const EventManageScreen = () => {
         .then(() => {
           console.log("Document successfully written!");
           Alert.alert(
-            "Event successfully updated! U may now close this modal 🎉"
+            "Event successfully updated! U may now close this modal, the event will also be evailable at the home screen for analytics 🎉"
           );
           navigation.goBack();
         })
         .catch((error) => {
           console.error("Error writing document: ", error);
         });
+      setDoc(
+        doc(db, "users", userInfo.uid, "organizingEvents", event.id),
+        {
+          id: event.id,
+          locationId: locationId,
+          event,
+          timestamp: serverTimestamp(),
+        },
+        { merge: true }
+      );
     } else {
       addDoc(eventsCollectionRef, eventPayload)
         .then(() => {
