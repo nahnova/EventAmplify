@@ -103,14 +103,11 @@ expo start
 
 ### Use Cases
 
-1. UC1 **Evenementcreatie**
-2. UC2 **Activiteitenbeheer**
-3. UC3 **Gebruikersregistratie**
-4. UC4 **Toegangscontrole**
+1. UC1 **Evenement creatie**
+2. UC2 **Activiteiten beheer**
+3. UC3 **Toegang controleren**
+4. UC4 **Toegang krijgen**
 5. UC5 **Navigatie Assistentie**
-6. UC6 **Feedback en Enquêtes**
-7. UC7 **Analyse van Evenementgegevens**
-8. UC8 **Personalisatie van Gebruikersprofiel**
 
 ## Usecase Desciptions
 
@@ -188,7 +185,38 @@ Hieronder volgt een uitbreiding van Use Case 1/8
 | (Activiteit verwijderen)     | 1 - 1a - 2 - 2a - 3 - 3a - 6 - 8 - 8a                                  |
 
 
-| Use Case                     | UC04: Toegang controleren                                              |
+| Use Case                     | UC03: Toegang controleren                                              |
+| :--------------------------- | :--------------------------------------------------------------------- |
+| **Description**              | Een medewerker controleert de aanwezigheid van een bezoeker            |
+| **Actor**                    | Medewerker                                                             |
+| **Trigger(s)**               | Er komt een bezoeker naar het evenement                                |
+| **Pre-Conditions**           | Er is een evenement gaande waar bezoekers voor zijn ingeschreven       |
+| **Post-Conditions**          | De aanwezigheid van bezoekers is gecontroleerd en vastgelegd           |
+| **Steps**                    |                                                                        |
+| **Actor (Medewerker)**       | **System**                                                             |
+| 1.De medewerker opent de     |                                                                        |
+| app                          |                                                                        |
+|                              | 1a. Het systeem toont een lijst van evenementen waarvoor aanwezigheid  |
+|                              |     moet worden gecontroleerd.                                         |
+| 2.De medewerker selecteert   |                                                                        |
+| het relevante evenement      |                                                                        |
+|                              | 2a. Het systeem toont de gegevens van het evenement                    |
+| 3.De medewerker klikt op     |                                                                        |
+| de scan knop                 |                                                                        |
+|                              | 3a. Het systeem opent de qr-code voor het scannen van de bezoeker's    |
+|                              |     aanwezigheid.                                                      |
+| 4.De medewerker laat de      |                                                                        |
+| bezoeker scannen             |                                                                        |
+|                              | 4a. Het systeem controleert of de bezoeker is ingeschreven voor het    |
+|                              |     evenement en markeert de aanwezigheid als juist.                   |
+|                              | 4b. Het systeem geeft een foutmelding als de bezoeker niet is          |
+|                              |     ingeschreven                                                       |
+| **Main Success Scenario**    | 1 - 1a - 2 - 2a - 3 - 3a - 4 - 4a                                      |
+| **Alternative Scenario**     |                                                                        |
+| (Bezoeker niet aangemeld)    | 1 - 1a - 2 - 2a - 3 - 3a - 4 - 4b                                      |
+
+
+| Use Case                     | UC04: Toegang krijgen                                                  |
 | :--------------------------- | :--------------------------------------------------------------------- |
 | **Description**              | Een bezoeker laat zijn toegang controleren                             |
 | **Actor**                    | Bezoeker                                                               |
@@ -246,21 +274,24 @@ Hieronder volgt een uitbreiding van Use Case 1/8
 
 Here are all the diagrams with added value for EventAmplify, all following UML specifications. With slight modifications to fit the project.
 
-### Use Case Diagram by @xavier
+### Use Case Diagram
+![Use Case Diagram](https://mirri.link/5JhxtpL)
 
-### Class Diagram (CONCEPTUAL) by @noa
+### Class Diagram (CONCEPTUAL)
 ![Class Diagram](https://mirri.link/TVsO9O4)
 
-### Sequence Diagram by @jay
+### Sequence Diagram
 ![Sequence Diagram](https://mirri.link/27WSMpv)
 
-### State Diagram by @noa
+### State Diagram
 ![State Diagram](https://mirri.link/61NXHNZ)
 
-### Activity Diagram by @xavier
+### Activity Diagram
 ![Activity Diagram](https://mirri.link/N3djlux)
+![Activity Diagram](https://mirri.link/-jhFbD8)
+![Activity Diagram](https://mirri.link/ICVY7-p)
 
-## Data Model by @noa
+## Data Model
 
 #### users
 - **id**: Unique identifier for each user.
