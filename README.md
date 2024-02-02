@@ -275,7 +275,7 @@ Hieronder volgt een uitbreiding van Use Case 1/8
 Here are all the diagrams with added value for EventAmplify, all following UML specifications. With slight modifications to fit the project.
 
 ### Use Case Diagram
-![Use Case Diagram](https://mirri.link/5JhxtpL)
+![Use Case Diagram](https://mirri.link/eO6NNDF)
 
 ### Class Diagram (CONCEPTUAL)
 ![Class Diagram](https://mirri.link/TVsO9O4)
@@ -288,8 +288,8 @@ Here are all the diagrams with added value for EventAmplify, all following UML s
 
 ### Activity Diagram
 ![Activity Diagram](https://mirri.link/N3djlux)
-![Activity Diagram](https://mirri.link/-jhFbD8)
-![Activity Diagram](https://mirri.link/ICVY7-p)
+![Activity Diagram create event](https://mirri.link/ePPRA8n)
+![Activity Diagram create activity](https://mirri.link/gGc_BdY)
 
 ## Data Model
 
