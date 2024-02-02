@@ -7,11 +7,31 @@
 
 ## Project Overview
 
+We built an event management app called EventAmplify. The app allows users to create, manage, and attend events. It includes features such as user authentication, profile creation, event and activity management, navigation assistance, GDPR compliance, analytics generation, and more. The app is designed to provide a seamless experience for both event organizers and attendees.
+
 ### Project Demo Video
 
 [Demo Video](https://youtu.be/70_oP-BlnPc)
 
 ### Assignment Description
+
+A mobile app needs to be developed that allows both the organization and attendance of an event. The process includes creating an event, adding activities, opening registrations, implementing mobile-on-mobile access control (QR code?), scheduling, navigation, data sharing, and generating relevant data. Research should be conducted on various requirements, roles, etc. For this course, at least one relevant API should be used, and consideration should be given to designing an API that aligns with the functionalities if we wish to store data on more than an in-memory database.
+
+## Design Considerations
+
+Since it's an app for Zuyd, the recognizable Zuyd branding should be incorporated. It's essential to think about when someone downloads an app on their phone and identify use cases suitable for a mobile app. Who will be downloading the app?
+
+## Timeline and Deliverables
+
+The clients expect a clear idea of the app, based on wireframes, before the start of week 7. Actual programming is to be done afterward. Further specifications and requirements should be discussed with the client, documented, translated into a design, implemented, and tested to ensure it meets the specified criteria.
+
+## Collaboration and Traceability
+
+Maintaining internal and external consistency among all products is crucial. Different requirements, starting from the Software Requirements Specification (SRS) through design and implementation, should be traced back in the testing process (traceability). Additionally, for PI 9, demonstrate a solution-oriented attitude, shared responsibility for the group process, and constructive collaboration.
+
+## Implementation and Tools
+
+You have the flexibility to choose tools and Agile processes for the mobile app development, but it should be well justified. Note that the supervising teacher may not have knowledge or experience with your chosen tools, potentially impacting the level of support provided.
 
 ### Wireframes
 
