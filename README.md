@@ -14,6 +14,7 @@
 ### Assignment Description
 
 ### Wireframes
+
 ![Wireframe Attendees](https://mirri.link/idMKga5)
 ![Wireframes Organizers](https://mirri.link/beu0H5S)
 
@@ -70,36 +71,36 @@ expo start
 
 ## Requirements
 
-| Code    | Omschrijving                                                                                               | Eigenaar          | Prioriteit | F / NF |
-| ------- | ---------------------------------------------------------------------------------------------------------- | ----------------- | ---------- | ------ |
-| REQ-001 | De app moet het managen van verschillende activiteiten binnen een evenement faciliteren. | Ontwikkelaarsteam | Hoog | F |
-| REQ-002 | De app moet een functie voor gebruikersregistratie voor evenementen hebben. | Ontwikkelaarsteam | Hoog | F |
-| REQ-003 | De app moet een functie voor mobiel-op-mobiel registratie hebben. | Ontwikkelaarsteam | Middel | F |
-| REQ-004 | De app moet navigatiefuncties hebben om gebruikers te leiden op de evenementenlocatie door middel van een kaart. | Ontwikkelaarsteam | Hoog | F |
-| REQ-005 | De app moet ontworpen worden in overeenstemming met de huisstijl en esthetische richtlijnen van Zuyd Hogeschool. | Ontwikkelaarsteam | Hoog | F |
-| REQ-006 | De app moet voldoen aan de GDPR en andere relevante gegevensbescherming regelgeving. | Ontwikkelaarsteam | Hoog | NF |
-| REQ-007 | De app moet in staat zijn om evenementengegevens en -analyses te genereren. | Ontwikkelaarsteam | Hoog | F |
-| REQ-008 | De app moet evenementgegevens en -analyses kunnen delen. | Ontwikkelaarsteam | Middel | F |
-| REQ-009 | De prestaties van de app moeten betrouwbaar zijn, met snelle laadtijden en minimale uitvaltijd. | Ontwikkelaarsteam | Hoog | NF |
-| REQ-0010 | De app moet compatibel zijn met de mobiele besturingssystemen iOS en Android. | Ontwikkelaarsteam | Hoog | F |
-| REQ-011 | De app moet een integratie van pushnotificaties voor event updates en herinneringen hebben. | Ontwikkelaarsteam | Gemiddeld | F |
-| REQ-012 | De app moet de mogelijkheid hebben voor gebruikers om feedback te geven over evenementen en activiteiten. | Ontwikkelaarsteam | Gemiddeld | F |
-| REQ-013 | De app moet evenementinformatie in de app real time bijwerken. | Ontwikkelaarsteam | Hoog | F |
-| REQ-014 | De app moet multi-taalondersteuning (Nederlands en Engels) bevatten. | Ontwikkelaarsteam | Laag | F |
-| REQ-015 | De app moet integratie met sociale media platforms voor het delen van evenement details bevatten. | Ontwikkelaarsteam | Laag | F |
-| REQ-017 | De app moet beveiligde betaling gateway voor eventuele ticketverkoop of donaties bevatten. | Ontwikkelaarsteam | Hoog | NF |
-| REQ-018 | De app moet implementatie van een interactieve plattegrond van de evenementenlocatie hebben. | Ontwikkelaarsteam | Hoog | F |
-| REQ-019 | De app moet de mogelijkheid bieden om voorkeuren aan te passen in een profiel. | Ontwikkelaarsteam | Gemiddeld | F |
-| REQ-020 | De app moet offline toegankelijkheid van kritieke app-informatie bieden. | Ontwikkelaarsteam | Hoog | NF |
-| REQ-022 | De app moet ondersteuning bieden voor toegankelijkheidsfuncties zoals schermlezers en tekst-naar-spraak. | Ontwikkelaarsteam | Hoog | NF |
-| REQ-023 | De app moet mogelijkheid voor live streaming van evenementen binnen de app bieden. | Ontwikkelaarsteam | Gemiddeld | F |
-| REQ-024 | De app moet ingebouwde enquête- en pollfuncties voor directe gebruikersfeedback tijdens evenementen bevatten.| Ontwikkelaarsteam | Gemiddeld | F |
-| REQ-025 | De app moet integratie met kalender apps voor het opslaan van evenementdata en herinneringen bevatten. | Ontwikkelaarsteam | Gemiddeld | F |
-| REQ-026 | De app moet end-to-end encryptie voor alle gebruikers communicatie binnen de app bieden. | Ontwikkelaarsteam | Hoog | NF |
-| REQ-027 | De app moet een backend beheerderspaneel voor het bijwerken en beheren van app-inhoud bieden. | Ontwikkelaarsteam | Hoog | NF |
-| REQ-028 | De app moet automatische synchronisatie van evenementgegevens tussen de app en de website van het evenement bieden. | Ontwikkelaarsteam | Hoog | F |
-| REQ-029 | De app moet een functie voor noodmeldingen en veiligheidsinstructies binnen de app bieden. | Ontwikkelaarsteam | Hoog | F |
-| REQ-030 | De app moet optimalisatie voor energie-efficiëntie om batterijgebruik te minimaliseren bieden. | Ontwikkelaarsteam | Gemiddeld | NF |
+| Code     | Omschrijving                                                                                                        | Eigenaar          | Prioriteit | F / NF |
+| -------- | ------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------- | ------ |
+| REQ-001  | De app moet het managen van verschillende activiteiten binnen een evenement faciliteren.                            | Ontwikkelaarsteam | Hoog       | F      |
+| REQ-002  | De app moet een functie voor gebruikersregistratie voor evenementen hebben.                                         | Ontwikkelaarsteam | Hoog       | F      |
+| REQ-003  | De app moet een functie voor mobiel-op-mobiel registratie hebben.                                                   | Ontwikkelaarsteam | Middel     | F      |
+| REQ-004  | De app moet navigatiefuncties hebben om gebruikers te leiden op de evenementenlocatie door middel van een kaart.    | Ontwikkelaarsteam | Hoog       | F      |
+| REQ-005  | De app moet ontworpen worden in overeenstemming met de huisstijl en esthetische richtlijnen van Zuyd Hogeschool.    | Ontwikkelaarsteam | Hoog       | F      |
+| REQ-006  | De app moet voldoen aan de GDPR en andere relevante gegevensbescherming regelgeving.                                | Ontwikkelaarsteam | Hoog       | NF     |
+| REQ-007  | De app moet in staat zijn om evenementengegevens en -analyses te genereren.                                         | Ontwikkelaarsteam | Hoog       | F      |
+| REQ-008  | De app moet evenementgegevens en -analyses kunnen delen.                                                            | Ontwikkelaarsteam | Middel     | F      |
+| REQ-009  | De prestaties van de app moeten betrouwbaar zijn, met snelle laadtijden en minimale uitvaltijd.                     | Ontwikkelaarsteam | Hoog       | NF     |
+| REQ-0010 | De app moet compatibel zijn met de mobiele besturingssystemen iOS en Android.                                       | Ontwikkelaarsteam | Hoog       | F      |
+| REQ-011  | De app moet een integratie van pushnotificaties voor event updates en herinneringen hebben.                         | Ontwikkelaarsteam | Gemiddeld  | F      |
+| REQ-012  | De app moet de mogelijkheid hebben voor gebruikers om feedback te geven over evenementen en activiteiten.           | Ontwikkelaarsteam | Gemiddeld  | F      |
+| REQ-013  | De app moet evenementinformatie in de app real time bijwerken.                                                      | Ontwikkelaarsteam | Hoog       | F      |
+| REQ-014  | De app moet multi-taalondersteuning (Nederlands en Engels) bevatten.                                                | Ontwikkelaarsteam | Laag       | F      |
+| REQ-015  | De app moet integratie met sociale media platforms voor het delen van evenement details bevatten.                   | Ontwikkelaarsteam | Laag       | F      |
+| REQ-017  | De app moet beveiligde betaling gateway voor eventuele ticketverkoop of donaties bevatten.                          | Ontwikkelaarsteam | Hoog       | NF     |
+| REQ-018  | De app moet implementatie van een interactieve plattegrond van de evenementenlocatie hebben.                        | Ontwikkelaarsteam | Hoog       | F      |
+| REQ-019  | De app moet de mogelijkheid bieden om voorkeuren aan te passen in een profiel.                                      | Ontwikkelaarsteam | Gemiddeld  | F      |
+| REQ-020  | De app moet offline toegankelijkheid van kritieke app-informatie bieden.                                            | Ontwikkelaarsteam | Hoog       | NF     |
+| REQ-022  | De app moet ondersteuning bieden voor toegankelijkheidsfuncties zoals schermlezers en tekst-naar-spraak.            | Ontwikkelaarsteam | Hoog       | NF     |
+| REQ-023  | De app moet mogelijkheid voor live streaming van evenementen binnen de app bieden.                                  | Ontwikkelaarsteam | Gemiddeld  | F      |
+| REQ-024  | De app moet ingebouwde enquête- en pollfuncties voor directe gebruikersfeedback tijdens evenementen bevatten.       | Ontwikkelaarsteam | Gemiddeld  | F      |
+| REQ-025  | De app moet integratie met kalender apps voor het opslaan van evenementdata en herinneringen bevatten.              | Ontwikkelaarsteam | Gemiddeld  | F      |
+| REQ-026  | De app moet end-to-end encryptie voor alle gebruikers communicatie binnen de app bieden.                            | Ontwikkelaarsteam | Hoog       | NF     |
+| REQ-027  | De app moet een backend beheerderspaneel voor het bijwerken en beheren van app-inhoud bieden.                       | Ontwikkelaarsteam | Hoog       | NF     |
+| REQ-028  | De app moet automatische synchronisatie van evenementgegevens tussen de app en de website van het evenement bieden. | Ontwikkelaarsteam | Hoog       | F      |
+| REQ-029  | De app moet een functie voor noodmeldingen en veiligheidsinstructies binnen de app bieden.                          | Ontwikkelaarsteam | Hoog       | F      |
+| REQ-030  | De app moet optimalisatie voor energie-efficiëntie om batterijgebruik te minimaliseren bieden.                      | Ontwikkelaarsteam | Gemiddeld  | NF     |
 
 ### Use Cases
 
@@ -113,187 +114,191 @@ expo start
 
 Hieronder volgt een uitbreiding van Use Case 1/8
 
-| Use Case                     | UC1: Evenementen creatie                                               |
-| :--------------------------- | :--------------------------------------------------------------------- |
-| **Description**              |  De organisator maakt een evenement aan                                |
-| **Actor**                    |  Organisator                                                           |
-| **Trigger(s)**               |  De organisator wilt een evenement maken                               |
-| **Pre-Conditions**           |  De organisator heeft een account                                      |
-| **Post-Conditions**          |  Er is een evenement aangemaakt                                        |
-| **Steps**                    |                                                                        |
-| **Actor (Organisator)**      | **System**                                                             |
-| 1.De organisator klikt op    |                                                                        |
-| events                       |                                                                        |
-|                              | 1a.Het systeem laat de event pagina zien                               |
-| 2.De organisator klikt op een|                                                                        |
-| locatie                      |                                                                        |
-|                              | 2a.Het systeem de evenementen van de gekozen locatie zien              |
-| 3.De organizator klikt op    |                                                                        |
-| "add event                   |                                                                        |
-|                              | 3a.Het systeem laat de vragenlijst voor een event zien                 |
-| 4.De organizator vult de     |                                                                        |
-| gegevens van het evenement in|                                                                        |
-|                              | 4a.Het systeem geeft aan dat de gegevens goed zijn ingevuld            |
-|                              | 4b.Het systeem geeft een foutmelding bij het invullen van de gegevens  |
-| 5.De organizator gaat terug  |                                                                        |
-| naar de lijst van de locatie |                                                                        |
-|                              | 5a.Het systeem voegt het nieuwe evenement aan de lijst toe             |
-| **Main Success Scenario**    | 1 - 1a - 2 - 2a - 3 - 4 - 4a - 5 - 5a                                  |
-| **Alternative Scenarios**    |                                                                        |
-| (Fout bij invullen gegevens) | 1 - 1a - 2 - 2a - 3 - 4 - 4b                                           |
+| Use Case                      | UC1: Evenementen creatie                                              |
+| :---------------------------- | :-------------------------------------------------------------------- |
+| **Description**               | De organisator maakt een evenement aan                                |
+| **Actor**                     | Organisator                                                           |
+| **Trigger(s)**                | De organisator wilt een evenement maken                               |
+| **Pre-Conditions**            | De organisator heeft een account                                      |
+| **Post-Conditions**           | Er is een evenement aangemaakt                                        |
+| **Steps**                     |                                                                       |
+| **Actor (Organisator)**       | **System**                                                            |
+| 1.De organisator klikt op     |                                                                       |
+| events                        |                                                                       |
+|                               | 1a.Het systeem laat de event pagina zien                              |
+| 2.De organisator klikt op een |                                                                       |
+| locatie                       |                                                                       |
+|                               | 2a.Het systeem de evenementen van de gekozen locatie zien             |
+| 3.De organizator klikt op     |                                                                       |
+| "add event                    |                                                                       |
+|                               | 3a.Het systeem laat de vragenlijst voor een event zien                |
+| 4.De organizator vult de      |                                                                       |
+| gegevens van het evenement in |                                                                       |
+|                               | 4a.Het systeem geeft aan dat de gegevens goed zijn ingevuld           |
+|                               | 4b.Het systeem geeft een foutmelding bij het invullen van de gegevens |
+| 5.De organizator gaat terug   |                                                                       |
+| naar de lijst van de locatie  |                                                                       |
+|                               | 5a.Het systeem voegt het nieuwe evenement aan de lijst toe            |
+| **Main Success Scenario**     | 1 - 1a - 2 - 2a - 3 - 4 - 4a - 5 - 5a                                 |
+| **Alternative Scenarios**     |                                                                       |
+| (Fout bij invullen gegevens)  | 1 - 1a - 2 - 2a - 3 - 4 - 4b                                          |
 
+| Use Case                      | UC02: Activiteit beheren                                         |
+| :---------------------------- | :--------------------------------------------------------------- |
+| **Description**               | De organisator beheert een activiteit                            |
+| **Actor**                     | Organisator                                                      |
+| **Trigger(s)**                | De organisator wil een activiteit beheren                        |
+| **Pre-Conditions**            | De organisator heeft een account en een evenement gemaakt        |
+| **Post-Conditions**           | Er is een activiteit beheerd                                     |
+| **Steps**                     |                                                                  |
+| **Actor (Organisator)**       | **System**                                                       |
+| 1. De organisator klikt op    |                                                                  |
+| events                        |                                                                  |
+|                               | 1a. Het systeem laat de eventpagina zien                         |
+| 2. De organisator kiest een   |                                                                  |
+| locatie                       |                                                                  |
+|                               | 2a. Het systeem laat de evenementen van de gekozen locatie zien  |
+| 3. De organisator kiest een   |                                                                  |
+| evenement                     |                                                                  |
+|                               | 3a. Het systeem laat de evenementinformatie zien                 |
+| 4. De organisator klikt op    |                                                                  |
+| "add activity"                |                                                                  |
+| 5. De organisator vult de     |                                                                  |
+| activiteitinformatie in en    |                                                                  |
+| klikt op opslaan              |                                                                  |
+|                               | 5a. Het systeem voegt de nieuwe activiteit toe aan het evenement |
+|                               | 5b. Het systeem geeft een foutmelding bij het toevoegen van de   |
+|                               | activiteit                                                       |
+| 6. De organisator klikt op de |                                                                  |
+| edit knop van een activity    |                                                                  |
+| 7. De organisator past de     |                                                                  |
+| gegevens aan                  |                                                                  |
+|                               | 7a. Het systeem slaat de aangepaste activiteit op                |
+| 8. De organisator klikt op de |                                                                  |
+| verwijder knop                |                                                                  |
+|                               | 8a. Het systeem verwijdert de activiteit uit het evenement       |
+| **Main Success Scenario**     | 1 - 1a - 2 - 2a - 3 - 3a - 4 - 5 - 5a                            |
+| **Alternative Scenarios**     |                                                                  |
+| (Foutmelding bij activiteit   | 1 - 1a - 2 - 2a - 3 - 3a - 4 - 5 - 5b                            |
+| maken)                        |                                                                  |
+| (Activiteit aanpassen)        | 1 - 1a - 2 - 2a - 3 - 3a - 6 - 7 - 7a                            |
+| (Activiteit verwijderen)      | 1 - 1a - 2 - 2a - 3 - 3a - 6 - 8 - 8a                            |
 
-| Use Case                     | UC02: Activiteit beheren                                               |
-| :--------------------------- | :--------------------------------------------------------------------- |
-| **Description**              | De organisator beheert een activiteit                                  |
-| **Actor**                    | Organisator                                                            |
-| **Trigger(s)**               | De organisator wil een activiteit beheren                              |
-| **Pre-Conditions**           | De organisator heeft een account en een evenement gemaakt              |
-| **Post-Conditions**          | Er is een activiteit beheerd                                           |
-| **Steps**                    |                                                                        |
-| **Actor (Organisator)**      | **System**                                                             |
-| 1. De organisator klikt op   |                                                                        |
-| events                       |                                                                        |
-|                              | 1a. Het systeem laat de eventpagina zien                               |
-| 2. De organisator kiest een  |                                                                        |
-| locatie                      |                                                                        |
-|                              | 2a. Het systeem laat de evenementen van de gekozen locatie zien        |
-| 3. De organisator kiest een  |                                                                        |
-| evenement                    |                                                                        |
-|                              | 3a. Het systeem laat de evenementinformatie zien                       |
-| 4. De organisator klikt op   |                                                                        |
-| "add activity"               |                                                                        |
-| 5. De organisator vult de    |                                                                        |
-| activiteitinformatie in en   |                                                                        |
-| klikt op opslaan             |                                                                        | 
-|                              | 5a. Het systeem voegt de nieuwe activiteit toe aan het evenement       |
-|                              | 5b. Het systeem geeft een foutmelding bij het toevoegen van de         |
-|                              | activiteit                                                             |
-| 6. De organisator klikt op de|                                                                        |
-| edit knop van een activity   |                                                                        |
-| 7. De organisator past de    |                                                                        |
-| gegevens aan                 |                                                                        |
-|                              | 7a. Het systeem slaat de aangepaste activiteit op                      |
-| 8. De organisator klikt op de|                                                                        |
-| verwijder knop               |                                                                        |
-|                              | 8a. Het systeem verwijdert de activiteit uit het evenement             |
-| **Main Success Scenario**    | 1 - 1a - 2 - 2a - 3 - 3a - 4 - 5 - 5a                                  |
-| **Alternative Scenarios**    |                                                                        |
-| (Foutmelding bij activiteit  | 1 - 1a - 2 - 2a - 3 - 3a - 4 - 5 - 5b                                  |
-| maken)                       |                                                                        |
-| (Activiteit aanpassen)       | 1 - 1a - 2 - 2a - 3 - 3a - 6 - 7 - 7a                                  |
-| (Activiteit verwijderen)     | 1 - 1a - 2 - 2a - 3 - 3a - 6 - 8 - 8a                                  |
+| Use Case                   | UC03: Toegang controleren                                             |
+| :------------------------- | :-------------------------------------------------------------------- |
+| **Description**            | Een medewerker controleert de aanwezigheid van een bezoeker           |
+| **Actor**                  | Medewerker                                                            |
+| **Trigger(s)**             | Er komt een bezoeker naar het evenement                               |
+| **Pre-Conditions**         | Er is een evenement gaande waar bezoekers voor zijn ingeschreven      |
+| **Post-Conditions**        | De aanwezigheid van bezoekers is gecontroleerd en vastgelegd          |
+| **Steps**                  |                                                                       |
+| **Actor (Medewerker)**     | **System**                                                            |
+| 1.De medewerker opent de   |                                                                       |
+| app                        |                                                                       |
+|                            | 1a. Het systeem toont een lijst van evenementen waarvoor aanwezigheid |
+|                            | moet worden gecontroleerd.                                            |
+| 2.De medewerker selecteert |                                                                       |
+| het relevante evenement    |                                                                       |
+|                            | 2a. Het systeem toont de gegevens van het evenement                   |
+| 3.De medewerker klikt op   |                                                                       |
+| de scan knop               |                                                                       |
+|                            | 3a. Het systeem opent de qr-code voor het scannen van de bezoeker's   |
+|                            | aanwezigheid.                                                         |
+| 4.De medewerker laat de    |                                                                       |
+| bezoeker scannen           |                                                                       |
+|                            | 4a. Het systeem controleert of de bezoeker is ingeschreven voor het   |
+|                            | evenement en markeert de aanwezigheid als juist.                      |
+|                            | 4b. Het systeem geeft een foutmelding als de bezoeker niet is         |
+|                            | ingeschreven                                                          |
+| **Main Success Scenario**  | 1 - 1a - 2 - 2a - 3 - 3a - 4 - 4a                                     |
+| **Alternative Scenario**   |                                                                       |
+| (Bezoeker niet aangemeld)  | 1 - 1a - 2 - 2a - 3 - 3a - 4 - 4b                                     |
 
+| Use Case                   | UC04: Toegang krijgen                                             |
+| :------------------------- | :---------------------------------------------------------------- |
+| **Description**            | Een bezoeker laat zijn toegang controleren                        |
+| **Actor**                  | Bezoeker                                                          |
+| **Trigger(s)**             | Er komt een bezoeker naar het evenementengebouw                   |
+| **Pre-Conditions**         | Er is een evenement waar de bezoeker voor is ingeschreven         |
+| **Post-Conditions**        | De toegang van de bezoeker is gecontroleerd                       |
+| **Steps**                  |                                                                   |
+| **Actor (Bezoeker)**       | **System**                                                        |
+| 1. De bezoeker opent de    |                                                                   |
+| app                        |                                                                   |
+|                            | 1a. Het systeem laat de homepage zien waar de evenementen staan   |
+|                            | waar de bezoeker voor is ingeschreven.                            |
+| 2. De bezoeker klikt op de |                                                                   |
+| scan knop                  |                                                                   |
+|                            | 2a. Het systeem opent de camera.                                  |
+| 3. De bezoeker scant de    |                                                                   |
+| qr-code van de medewerker  |                                                                   |
+| bij het evenement          |                                                                   |
+|                            | 3a. Het systeem zet de bezoeker op aanwezig.                      |
+|                            | 3b. Het systeem geeft een foutmelding bij het aanwezig zetten van |
+|                            | de bezoeker.                                                      |
+| 4. UC05                    |                                                                   |
+| **Main Success Scenario**  | 1 - 1a - 2 - 2a - 3 - 3a                                          |
+| **Alternative Scenarios**  |                                                                   |
+| (Foutmelding bij           | 1 - 1a - 2 - 2a - 3 - 3b                                          |
+| controleren toegang)       |                                                                   |
+| (Toegang controleren en    | 1 - 1a - 2 - 2a - 3 - 3a - 4                                      |
+| navigatie openen)          |                                                                   |
 
-| Use Case                     | UC03: Toegang controleren                                              |
-| :--------------------------- | :--------------------------------------------------------------------- |
-| **Description**              | Een medewerker controleert de aanwezigheid van een bezoeker            |
-| **Actor**                    | Medewerker                                                             |
-| **Trigger(s)**               | Er komt een bezoeker naar het evenement                                |
-| **Pre-Conditions**           | Er is een evenement gaande waar bezoekers voor zijn ingeschreven       |
-| **Post-Conditions**          | De aanwezigheid van bezoekers is gecontroleerd en vastgelegd           |
-| **Steps**                    |                                                                        |
-| **Actor (Medewerker)**       | **System**                                                             |
-| 1.De medewerker opent de     |                                                                        |
-| app                          |                                                                        |
-|                              | 1a. Het systeem toont een lijst van evenementen waarvoor aanwezigheid  |
-|                              |     moet worden gecontroleerd.                                         |
-| 2.De medewerker selecteert   |                                                                        |
-| het relevante evenement      |                                                                        |
-|                              | 2a. Het systeem toont de gegevens van het evenement                    |
-| 3.De medewerker klikt op     |                                                                        |
-| de scan knop                 |                                                                        |
-|                              | 3a. Het systeem opent de qr-code voor het scannen van de bezoeker's    |
-|                              |     aanwezigheid.                                                      |
-| 4.De medewerker laat de      |                                                                        |
-| bezoeker scannen             |                                                                        |
-|                              | 4a. Het systeem controleert of de bezoeker is ingeschreven voor het    |
-|                              |     evenement en markeert de aanwezigheid als juist.                   |
-|                              | 4b. Het systeem geeft een foutmelding als de bezoeker niet is          |
-|                              |     ingeschreven                                                       |
-| **Main Success Scenario**    | 1 - 1a - 2 - 2a - 3 - 3a - 4 - 4a                                      |
-| **Alternative Scenario**     |                                                                        |
-| (Bezoeker niet aangemeld)    | 1 - 1a - 2 - 2a - 3 - 3a - 4 - 4b                                      |
-
-
-| Use Case                     | UC04: Toegang krijgen                                                  |
-| :--------------------------- | :--------------------------------------------------------------------- |
-| **Description**              | Een bezoeker laat zijn toegang controleren                             |
-| **Actor**                    | Bezoeker                                                               |
-| **Trigger(s)**               | Er komt een bezoeker naar het evenementengebouw                        |
-| **Pre-Conditions**           | Er is een evenement waar de bezoeker voor is ingeschreven              |
-| **Post-Conditions**          | De toegang van de bezoeker is gecontroleerd                            |
-| **Steps**                    |                                                                        |
-| **Actor (Bezoeker)**         | **System**                                                             |
-| 1. De bezoeker opent de      |                                                                        |
-| app                          |                                                                        |
-|                              | 1a. Het systeem laat de homepage zien waar de evenementen staan        |
-|                              |    waar de bezoeker voor is ingeschreven.                              |
-| 2. De bezoeker klikt op de   |                                                                        |
-| scan knop                    |                                                                        |
-|                              | 2a. Het systeem opent de camera.                                       |
-| 3. De bezoeker scant de      |                                                                        |
-| qr-code van de medewerker    |                                                                        |
-| bij het evenement            |                                                                        |
-|                              | 3a. Het systeem zet de bezoeker op aanwezig.                           |
-|                              | 3b. Het systeem geeft een foutmelding bij het aanwezig zetten van      |
-|                              |     de bezoeker.                                                       |
-| 4. UC05                      |                                                                        |
-| **Main Success Scenario**    | 1 - 1a - 2 - 2a - 3 - 3a                                               |
-| **Alternative Scenarios**    |                                                                        |
-| (Foutmelding bij             | 1 - 1a - 2 - 2a - 3 - 3b                                               |
-| controleren toegang)         |                                                                        |
-| (Toegang controleren en      | 1 - 1a - 2 - 2a - 3 - 3a - 4                                           |
-| navigatie openen)            |                                                                        |
-
-
-| Use Case                     | UC05: Navigatie assisteren                                             |
-| :--------------------------- | :--------------------------------------------------------------------- |
-| **Description**              | Een bezoeker opent zijn navigatie naar een evenement                   |
-| **Actor**                    | Bezoeker                                                               |
-| **Trigger(s)**               | UC04                                                                   |
-| **Pre-Conditions**           | UC04                                                                   |
-| **Post-Conditions**          | De bezoeker is bij de locatie van een evenement aangekomen             |
-| **Steps**                    |                                                                        |
-| **Actor (Bezoeker)**         | **System**                                                             |
-| 1. De bezoeker opent de      |                                                                        |
-| homepage                     |                                                                        |
-|                              | 1a. Het systeem laat de homepage zien waar de evenementen staan        |
-|                              |     van de bezoeker waar hij/zij voor is ingeschreven.                 |
-| 2. De bezoeker klikt het     |                                                                        |
-| evenement waar hij           |                                                                        |
-| aanwezig bij is              |                                                                        |
-|                              | 2a. Het systeem laat de evenementdetails zien.                         |
-| 3. De bezoeker klikt op de   |                                                                        |
-| kaart knop                   |                                                                        |
-|                              | 3a. Het systeem laat de kaart zien met de route die de bezoeker        |
-|                              |     moet lopen.                                                        |
-| **Main Success Scenario**    | 1 - 1a - 2 - 2a - 3 - 3a                                               |
+| Use Case                   | UC05: Navigatie assisteren                                      |
+| :------------------------- | :-------------------------------------------------------------- |
+| **Description**            | Een bezoeker opent zijn navigatie naar een evenement            |
+| **Actor**                  | Bezoeker                                                        |
+| **Trigger(s)**             | UC04                                                            |
+| **Pre-Conditions**         | UC04                                                            |
+| **Post-Conditions**        | De bezoeker is bij de locatie van een evenement aangekomen      |
+| **Steps**                  |                                                                 |
+| **Actor (Bezoeker)**       | **System**                                                      |
+| 1. De bezoeker opent de    |                                                                 |
+| homepage                   |                                                                 |
+|                            | 1a. Het systeem laat de homepage zien waar de evenementen staan |
+|                            | van de bezoeker waar hij/zij voor is ingeschreven.              |
+| 2. De bezoeker klikt het   |                                                                 |
+| evenement waar hij         |                                                                 |
+| aanwezig bij is            |                                                                 |
+|                            | 2a. Het systeem laat de evenementdetails zien.                  |
+| 3. De bezoeker klikt op de |                                                                 |
+| kaart knop                 |                                                                 |
+|                            | 3a. Het systeem laat de kaart zien met de route die de bezoeker |
+|                            | moet lopen.                                                     |
+| **Main Success Scenario**  | 1 - 1a - 2 - 2a - 3 - 3a                                        |
 
 ## UML Diagrams 📊
 
 Here are all the diagrams with added value for EventAmplify, all following UML specifications. With slight modifications to fit the project.
 
 ### Use Case Diagram
+
 ![Use Case Diagram](https://mirri.link/eO6NNDF)
 
 ### Class Diagram (CONCEPTUAL)
+
 ![Class Diagram](https://mirri.link/TVsO9O4)
 
 ### Sequence Diagram
+
 ![Sequence Diagram](https://mirri.link/27WSMpv)
 
 ### State Diagram
+
 ![State Diagram](https://mirri.link/61NXHNZ)
 
-### Activity Diagram
-![Activity Diagram](https://mirri.link/N3djlux)
-![Activity Diagram create event](https://mirri.link/ePPRA8n)
-![Activity Diagram create activity](https://mirri.link/gGc_BdY)
+### Activity Diagrams
+
+<div style="display: flex; flex-direction: row; justify-content: space-between; width: 100%;">
+  <img src="https://mirri.link/N3djlux" alt="Activity Diagram" style="width: 33%; height: auto;">
+  <img src="https://mirri.link/ePPRA8n" alt="Activity Diagram create event" style="width: 33%; height: auto;">
+  <img src="https://mirri.link/gGc_BdY" alt="Activity Diagram create activity" style="width: 33%; height: auto;">
+</div>
 
 ## Data Model
 
 #### users
+
 - **id**: Unique identifier for each user.
 - **displayName**: User's name.
 - **bio**: User's biography.
@@ -302,14 +307,16 @@ Here are all the diagrams with added value for EventAmplify, all following UML s
 - **role**: User's role which could be organizer or attendee.
 - **timestamp**: Server timestamp of the user.
 
-#### attendingEvents of users 
+#### attendingEvents of users
+
 - **id**: Unique identifier for each event.
 - **locationId**: Unique identifier for each location.
 - **event**: entire events object.
 - **location**: entire locations object.
 - **timestamp**: Server timestamp of the event.
 
-#### organizingEvents of users 
+#### organizingEvents of users
+
 - **id**: Unique identifier for each event.
 - **locationId**: Unique identifier for each location.
 - **event**: entire events object.
@@ -317,6 +324,7 @@ Here are all the diagrams with added value for EventAmplify, all following UML s
 - **timestamp**: Server timestamp of the event.
 
 #### locations
+
 - **id**: Unique identifier for each location.
 - **name**: Location's name.
 - **location**: Latitude and longitude of the location. address: 'Nieuw Eyckholt 300, 6419 DJ Heerlen, Netherlands'.
@@ -324,6 +332,7 @@ Here are all the diagrams with added value for EventAmplify, all following UML s
 - **timestamp**: Server timestamp of the location.
 
 ##### events of locations
+
 - **id**: Unique identifier for each event.
 - **title**: Event's title.
 - **description**: Event's description.
@@ -341,6 +350,7 @@ Here are all the diagrams with added value for EventAmplify, all following UML s
 - **attendees**: List of attendees' ids.
 
 ##### organizers of events
+
 - **id**: Unique identifier for each organizer.
 - **displayName**: Organizer's name.
 - **bio**: Organizer's biography.
@@ -350,6 +360,7 @@ Here are all the diagrams with added value for EventAmplify, all following UML s
 - **timestamp**: Server timestamp of the organizer.
 
 ##### attendees of events
+
 - **id**: Unique identifier for each attendee.
 - **displayName**: Attendee's name.
 - **bio**: Attendee's biography.
@@ -359,6 +370,7 @@ Here are all the diagrams with added value for EventAmplify, all following UML s
 - **timestamp**: Server timestamp of the attendee.
 
 ##### activities of events
+
 - **id**: Unique identifier for each activity.
 - **title**: Activity's title.
 - **description**: Activity's description.
@@ -548,7 +560,6 @@ The acceptance tests were conducted in a controlled environment with the followi
   - **Result:** [Pass]
 - **Test Case 5.4.2:** Confirm that Firestore rules and permissions are appropriately configured to restrict unauthorized access.
   - **Result:** [Pass]
-
 
 ### 6. Analytics Generation (REQ-007)
 
